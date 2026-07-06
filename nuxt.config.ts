@@ -2,6 +2,9 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
+  nitro: {
+    preset: 'cloudflare-pages'
+  },
   app: {
     head: {
       title: '웹 포트폴리오 쇼케이스',
