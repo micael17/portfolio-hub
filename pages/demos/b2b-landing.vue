@@ -237,7 +237,7 @@ onUnmounted(() => {
 /* Typography & Utilities */
 h1, h2, h3, h4 { font-weight: 700; }
 .section-title { font-size: 2.5rem; margin-bottom: 1.5rem; letter-spacing: -1px; }
-.text-center { text-center; }
+.text-center { text-align: center; }
 .subtitle { font-size: 1.2rem; color: #a1a1aa; margin-bottom: 3rem; }
 .w-100 { width: 100%; }
 
