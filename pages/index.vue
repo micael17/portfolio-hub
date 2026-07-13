@@ -17,6 +17,41 @@
 
     <!-- Portfolio Categories -->
     <div id="portfolio" class="portfolio-container">
+      <!-- New Wedding Demos -->
+      <section class="portfolio-category">
+        <h2 class="section-title">New Wedding Demos <span class="sub">신규 청첩장 데모</span></h2>
+        <div class="portfolio-grid">
+          <div class="portfolio-card">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80" alt="Editorial Wedding" class="card-image">
+            <div class="card-content">
+              <div class="tags"><span class="tag">Wedding</span><span class="tag">New</span><span class="tag">Editorial</span></div>
+              <h3 class="card-title">에디토리얼 웨딩 청첩장</h3>
+              <p class="card-desc">화보형 사진 구성과 큰 여백 중심으로 만든 최신 무드 청첩장 데모입니다.</p>
+              <a href="/demos/editorial-wedding" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
+            </div>
+          </div>
+
+          <div class="portfolio-card">
+            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=80" alt="Signature Wedding" class="card-image">
+            <div class="card-content">
+              <div class="tags"><span class="tag">Wedding</span><span class="tag">New</span><span class="tag">Hotel</span></div>
+              <h3 class="card-title">시그니처 호텔 웨딩 청첩장</h3>
+              <p class="card-desc">저녁 예식과 호텔 브로슈어 톤을 섞은 정돈된 스타일의 청첩장 데모입니다.</p>
+              <a href="/demos/signature-wedding" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
+            </div>
+          </div>
+
+          <div class="portfolio-card">
+            <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=900&q=80" alt="Archive Wedding" class="card-image">
+            <div class="card-content">
+              <div class="tags"><span class="tag">Wedding</span><span class="tag">New</span><span class="tag">Film</span></div>
+              <h3 class="card-title">아카이브 필름 웨딩 청첩장</h3>
+              <p class="card-desc">필름 스냅과 종이 질감 무드를 앞세운 감도 높은 청첩장 데모입니다.</p>
+              <a href="/demos/archive-wedding" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
       
       <!-- Category 1: Invitations & Events -->
       <section class="portfolio-category">
@@ -52,17 +87,6 @@
               <h3 class="card-title">가든 보태니컬 청첩장</h3>
               <p class="card-desc">그린 톤의 식물 패턴과 따뜻한 색감을 사용하여 싱그러운 야외 웨딩에 완벽하게 어울립니다.</p>
               <a href="/demos/botanical-wedding" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
-            </div>
-          </div>
-
-          <!-- 4. Hanok Traditional -->
-          <div class="portfolio-card">
-            <img src="https://images.unsplash.com/photo-1582560469795-09c31fa759be?w=600&q=80" alt="Hanok Wedding" class="card-image">
-            <div class="card-content">
-              <div class="tags"><span class="tag">Wedding</span><span class="tag">Oriental</span></div>
-              <h3 class="card-title">전통 한옥 혼례장</h3>
-              <p class="card-desc">전통적인 색채와 동양적인 레이아웃을 모던하게 재해석한 품격 있는 전통 혼례용 청첩장입니다.</p>
-              <a href="/demos/hanok-wedding" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
             </div>
           </div>
 
@@ -146,6 +170,36 @@
               <h3 class="card-title">건축/인테리어 스튜디오</h3>
               <p class="card-desc">이미지 중심의 포트폴리오 쇼케이스에 특화된 건축 사무소 및 인테리어 스튜디오 소개 페이지입니다.</p>
               <a href="/demos/architecture" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
+            </div>
+          </div>
+
+          <div class="portfolio-card">
+            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&q=80" alt="Corporate Company" class="card-image">
+            <div class="card-content">
+              <div class="tags"><span class="tag">Corporate</span><span class="tag">Standard</span></div>
+              <h3 class="card-title">일반 기업 홈페이지</h3>
+              <p class="card-desc">회사 소개, 주요 사업, 실적과 문의 전환을 균형 있게 담은 표준형 기업 웹사이트입니다.</p>
+              <a href="/demos/corporate-company" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
+            </div>
+          </div>
+
+          <div class="portfolio-card">
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80" alt="Medical Center" class="card-image">
+            <div class="card-content">
+              <div class="tags"><span class="tag">Medical</span><span class="tag">Hospital</span></div>
+              <h3 class="card-title">지역 종합병원 홈페이지</h3>
+              <p class="card-desc">진료과, 의료진, 예약과 오시는 길을 빠르게 찾을 수 있는 병원 표준 홈페이지입니다.</p>
+              <a href="/demos/medical-center" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
+            </div>
+          </div>
+
+          <div class="portfolio-card">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=80" alt="Dental Clinic" class="card-image">
+            <div class="card-content">
+              <div class="tags"><span class="tag">Medical</span><span class="tag">Dental</span></div>
+              <h3 class="card-title">동네 치과 홈페이지</h3>
+              <p class="card-desc">진료 안내와 의료진 신뢰, 간편 상담 예약을 중심으로 구성한 치과 홈페이지입니다.</p>
+              <a href="/demos/dental-clinic" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
             </div>
           </div>
         </div>

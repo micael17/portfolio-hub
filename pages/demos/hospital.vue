@@ -1,210 +1,22 @@
 <template>
-  <div class="hospital">
-    <nav class="navbar">
-      <div class="logo">AURA <span>CLINIC</span></div>
-      <div class="nav-links">
-        <a href="#procedures">Procedures</a>
-        <a href="#doctors">Specialists</a>
-        <a href="#clinic">The Clinic</a>
-        <button class="btn-book">BOOK CONSULTATION</button>
-      </div>
-    </nav>
-    
-    <header class="hero">
-      <div class="hero-text">
-        <p class="eyebrow">REDEFINING BEAUTY</p>
-        <h1>Artistry in <br>Aesthetics.</h1>
-        <button class="btn-outline">Explore Our Philosophy</button>
-      </div>
-      <div class="hero-img"></div>
-    </header>
-
-    <section class="features">
-      <div class="f-card">
-        <p class="num">01.</p>
-        <h3>Advanced Technology</h3>
-        <p>State-of-the-art FDA approved equipment for precise, safe, and effective treatments.</p>
-      </div>
-      <div class="f-card">
-        <p class="num">02.</p>
-        <h3>Expert Surgeons</h3>
-        <p>Board-certified plastic surgeons with over decades of specialized experience.</p>
-      </div>
-      <div class="f-card">
-        <p class="num">03.</p>
-        <h3>Private Recovery</h3>
-        <p>Exclusive, hotel-like VIP suites designed for your utmost comfort and privacy.</p>
-      </div>
-    </section>
-
-    <section class="banner">
-      <h2>"Where medical precision meets aesthetic perfection."</h2>
-    </section>
-  </div>
+  <main class="clinic">
+    <header><a href="#top" class="logo">nue<span>clinic</span></a><nav><a href="#care">진료 안내</a><a href="#journal">NUE Journal</a><a href="#book">예약하기</a></nav><button @click="menu = !menu">{{ menu ? '닫기' : '메뉴' }}</button></header>
+    <div v-if="menu" class="drawer"><a href="#care" @click="menu = false">진료 안내</a><a href="#journal" @click="menu = false">NUE Journal</a><a href="#book" @click="menu = false">예약하기</a></div>
+    <section id="top" class="hero"><div class="hero-copy"><p>SKIN, SLOWLY.</p><h1>나에게 꼭 맞는<br><em>아름다움의 속도.</em></h1><p>과한 변화보다 오래 편안한 변화. 피부의 시간표를 존중하는 프라이빗 웰니스 클리닉입니다.</p><a href="#book">첫 상담 예약하기 <span>↗</span></a></div><img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=85" alt="차분한 클리닉 공간"></section>
+    <section class="promise"><div><span>01</span><b>의료진 1:1 상담</b><p>피부 상태와 생활 리듬을 함께 읽습니다.</p></div><div><span>02</span><b>필요한 만큼만</b><p>목표와 예산에 맞는 계획을 제안합니다.</p></div><div><span>03</span><b>회복까지 케어</b><p>시술 뒤의 변화도 세심하게 확인합니다.</p></div></section>
+    <section id="care" class="care"><p class="kicker">OUR CARE</p><h2>오늘의 피부에<br>필요한 것만.</h2><div class="care-grid"><article v-for="item in care" :key="item.name"><span>{{ item.no }}</span><h3>{{ item.name }}</h3><p>{{ item.text }}</p><a href="#book">자세히 보기 ↗</a></article></div></section>
+    <section id="journal" class="journal"><div><p class="kicker">NUE JOURNAL</p><h2>아름다움은<br>정보에서 시작됩니다.</h2><a href="#book">더 읽어보기 →</a></div><div class="journal-note"><p>SEASONAL NOTE / 07</p><h3>여름철 예민해진 피부,<br>무엇부터 줄여야 할까요?</h3><span>피부과 전문의 노트</span></div></section>
+    <section id="book" class="booking"><p class="kicker">PRIVATE CONSULTATION</p><h2>나를 알아가는<br>첫 번째 시간.</h2><button @click="requested = true">{{ requested ? '상담 요청이 접수되었어요.' : '상담 예약 문의하기' }} <span>↗</span></button><p>월-토 10:00 - 19:00 · 서울 강남구 도산대로 128</p></section>
+    <footer>NUE CLINIC · SEOUL</footer>
+  </main>
 </template>
-
-<script setup>
-useHead({ title: 'Aura Clinic | Premium Aesthetics' })
+<script setup lang="ts">
+const menu = ref(false), requested = ref(false)
+const care = [{ no:'A',name:'Skin Reset',text:'피부 장벽과 결을 다듬는 기초 케어' }, { no:'B',name:'Skin Balance',text:'탄력과 윤곽의 균형을 찾는 리프팅' }, { no:'C',name:'Skin Glow',text:'칙칙한 안색에 맑은 밀도를 더하는 케어' }]
+useHead({ title: 'NUE Clinic | Private Skin Wellness' })
 definePageMeta({ layout: false })
 </script>
-
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@400;600&family=Jost:wght@300;400;500;600&display=swap');
-
-.hospital {
-  font-family: 'Jost', sans-serif;
-  color: #2b2b2b;
-  background: #fdfdfc;
-  min-height: 100vh;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 5%;
-  border-bottom: 1px solid #eaeaea;
-  background: #fff;
-}
-
-.logo {
-  font-family: 'Cormorant', serif;
-  font-size: 1.8rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-}
-
-.logo span {
-  font-family: 'Jost', sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: 4px;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #2b2b2b;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.btn-book {
-  background: #2b2b2b;
-  color: #fff;
-  border: none;
-  padding: 1rem 2rem;
-  font-family: inherit;
-  font-size: 0.8rem;
-  letter-spacing: 2px;
-  cursor: pointer;
-}
-
-.hero {
-  display: flex;
-  height: 85vh;
-  border-bottom: 1px solid #eaeaea;
-}
-
-.hero-text {
-  flex: 1;
-  padding: 0 5%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  background: #fdfdfc;
-}
-
-.eyebrow {
-  font-size: 0.85rem;
-  letter-spacing: 4px;
-  margin-bottom: 2rem;
-  color: #888;
-}
-
-.hero-text h1 {
-  font-family: 'Cormorant', serif;
-  font-size: 6rem;
-  line-height: 1;
-  margin-bottom: 3rem;
-  font-weight: 400;
-}
-
-.btn-outline {
-  background: transparent;
-  border: 1px solid #2b2b2b;
-  padding: 1rem 3rem;
-  font-family: inherit;
-  font-size: 0.9rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.btn-outline:hover {
-  background: #2b2b2b;
-  color: #fff;
-}
-
-.hero-img {
-  flex: 1;
-  background: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&q=80') center/cover;
-}
-
-.features {
-  display: flex;
-  border-bottom: 1px solid #eaeaea;
-}
-
-.f-card {
-  flex: 1;
-  padding: 5rem 3rem;
-  border-right: 1px solid #eaeaea;
-  background: #fff;
-}
-
-.f-card:last-child {
-  border-right: none;
-}
-
-.num {
-  font-family: 'Cormorant', serif;
-  font-size: 2rem;
-  color: #ccc;
-  margin-bottom: 1.5rem;
-}
-
-.f-card h3 {
-  font-size: 1.2rem;
-  letter-spacing: 1px;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-}
-
-.f-card p {
-  color: #666;
-  line-height: 1.6;
-}
-
-.banner {
-  background: #f4f1ee;
-  padding: 8rem 5%;
-  text-align: center;
-}
-
-.banner h2 {
-  font-family: 'Cormorant', serif;
-  font-size: 3rem;
-  font-weight: 400;
-  font-style: italic;
-  color: #2b2b2b;
-}
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono&family=Gowun+Batang:wght@400;700&family=Manrope:wght@400;500;600&display=swap');
+.clinic{background:#fbfaf6;color:#313832;min-height:100vh;font-family:Manrope,sans-serif}header{height:78px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between}.logo{color:inherit;text-decoration:none;font:700 27px/1 'Gowun Batang',serif;letter-spacing:-.12em}.logo span{font:11px Manrope,sans-serif;letter-spacing:.14em;margin-left:6px;color:#819177}header nav{display:flex;gap:27px}header nav a{color:inherit;text-decoration:none;font-size:12px}header button{display:none;background:none;border:0;font:12px Manrope,sans-serif;color:inherit}.drawer{display:none}.hero{display:grid;grid-template-columns:1fr 1fr;min-height:650px;background:#e8ede3}.hero-copy{padding:10vw 5vw;display:flex;flex-direction:column;justify-content:center}.hero-copy>p:first-child,.kicker{font:10px 'DM Mono',monospace;letter-spacing:.11em;color:#75886c}.hero h1,.care h2,.journal h2,.booking h2{font:400 clamp(38px,5vw,69px)/1.12 'Gowun Batang',serif;letter-spacing:-.09em;margin:25px 0}.hero h1 em{color:#72906d;font-style:normal}.hero-copy>p:nth-of-type(2){max-width:360px;font-size:14px;line-height:1.85;color:#637061}.hero-copy a{margin-top:35px;color:inherit;text-decoration:none;font-size:13px;border-bottom:1px solid;width:max-content;padding-bottom:7px}.hero-copy a span{margin-left:40px;font-size:20px}.hero>img{width:100%;height:100%;object-fit:cover;filter:saturate(.7)}.promise{display:grid;grid-template-columns:repeat(3,1fr);padding:0 5vw;background:#fff}.promise div{padding:48px 30px;border-right:1px solid #e0e3da}.promise div:first-child{padding-left:0}.promise div:last-child{border:0}.promise span{display:block;font:10px 'DM Mono',monospace;color:#8a9b80}.promise b{display:block;margin:16px 0 8px;font:700 16px 'Gowun Batang',serif}.promise p{color:#81897f;font-size:13px;line-height:1.6;margin:0}.care{padding:120px 5vw}.care-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:50px}.care article{min-height:260px;padding:25px;background:#ecefe9;display:flex;flex-direction:column}.care article span{font:10px 'DM Mono',monospace;color:#78916e}.care h3{font:700 22px 'Gowun Batang',serif;margin:48px 0 8px}.care article p{font-size:13px;line-height:1.7;color:#657064;margin:0}.care article a{margin-top:auto;color:inherit;text-decoration:none;font-size:11px}.journal{padding:100px 5vw;display:grid;grid-template-columns:1fr 1fr;gap:40px;background:#344137;color:#f4f4eb}.journal .kicker{color:#c9dbb8}.journal h2{margin-bottom:35px}.journal a{color:inherit;font-size:13px}.journal-note{padding:27px;background:#c9d7bd;color:#304031;display:flex;flex-direction:column;justify-content:space-between;min-height:245px}.journal-note p,.journal-note span{font:10px 'DM Mono',monospace}.journal-note h3{font:400 26px/1.4 'Gowun Batang',serif}.booking{padding:115px 5vw;background:#f1dcb7}.booking .kicker{color:#a37052}.booking button{border:0;background:#364138;color:#fff;padding:18px 22px;min-width:280px;text-align:left;font:13px Manrope,sans-serif;cursor:pointer}.booking button span{float:right;font-size:18px}.booking>p:last-child{font-size:11px;color:#70685e;margin-top:24px}footer{padding:25px 5vw;background:#364138;color:#d9e0d1;font:10px 'DM Mono',monospace;letter-spacing:.1em}@media(max-width:650px){header nav{display:none}header button{display:block}.drawer{display:grid;gap:17px;padding:25px 5vw;background:#e8ede3}.drawer a{color:inherit;text-decoration:none;font:20px 'Gowun Batang',serif}.hero,.journal{grid-template-columns:1fr}.hero{min-height:0}.hero-copy{padding:80px 24px 55px}.hero>img{height:390px}.promise{padding:0;grid-template-columns:1fr}.promise div,.promise div:first-child{padding:25px 24px;border-right:0;border-bottom:1px solid #e0e3da}.care,.booking{padding:75px 24px}.care-grid{grid-template-columns:1fr;margin-top:35px}.care article{min-height:180px}.journal{padding:75px 24px}.journal-note{min-height:210px}}
 </style>

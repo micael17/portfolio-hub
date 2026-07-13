@@ -1,141 +1,20 @@
 <template>
-  <div class="architecture">
-    <nav class="navbar">
-      <div class="logo">STUDIO.A</div>
-      <div class="menu-btn">MENU</div>
-    </nav>
-    
-    <div class="hero">
-      <div class="title-container">
-        <h1>SPATIAL<br>POETRY.</h1>
-      </div>
-      <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80" alt="Architecture">
-      </div>
-    </div>
-
-    <section class="project-list">
-      <div class="p-row">
-        <h2>01 / THE CONCRETE HOUSE</h2>
-        <span>RESIDENTIAL, 2025</span>
-      </div>
-      <div class="p-row">
-        <h2>02 / SEOUL MUSEUM OF ART</h2>
-        <span>CULTURAL, 2024</span>
-      </div>
-      <div class="p-row">
-        <h2>03 / VERTICAL FOREST HQ</h2>
-        <span>COMMERCIAL, 2023</span>
-      </div>
-      <div class="p-row">
-        <h2>04 / MINIMALIST PAVILION</h2>
-        <span>PUBLIC, 2022</span>
-      </div>
-    </section>
-
-    <div class="about">
-      <p>We believe in the power of raw materials, rigorous geometry, and the interplay of light and shadow.</p>
-    </div>
-  </div>
+  <main class="studio">
+    <header><a href="#top">FORM / FIELD</a><span>ARCHITECTURE STUDIO · SEOUL</span><button @click="menu = !menu">{{ menu ? '×' : '☰' }}</button></header>
+    <nav v-if="menu"><a href="#work" @click="menu = false">Projects</a><a href="#office" @click="menu = false">Office</a><a href="mailto:hello@formfield.example">Contact</a></nav>
+    <section id="top" class="hero"><div class="hero-title"><p>2026 SELECTED WORKS</p><h1>공간은<br>살아가는 방식의<br><em>형태가 됩니다.</em></h1></div><div class="hero-image"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1500&q=85" alt="현대 건축물 외관"><span>01 / 06</span></div></section>
+    <section id="work" class="projects"><div class="section-top"><p>SELECTED PROJECTS</p><span>SCROLL TO EXPLORE ↓</span></div><article v-for="project in projects" :key="project.no" :class="['project', `project-${project.no}`]"><div class="project-meta"><span>{{ project.no }}</span><p>{{ project.type }}<br>{{ project.year }}</p></div><div class="project-copy"><h2>{{ project.name }}</h2><p>{{ project.description }}</p><a href="#office">PROJECT NOTE ↗</a></div><img :src="project.image" :alt="project.name"></article></section>
+    <section id="office" class="office"><p>OUR APPROACH</p><h2>빛, 재료, 사람의 동선.<br>우리는 이 셋이 오래 편안하게 만나는 지점을 설계합니다.</h2><div><span>FORM / FIELD</span><p>서울과 제주를 기반으로 주거, 문화, 상업 공간을 설계합니다. 건축의 완성은 준공일이 아니라, 그 공간이 일상에 스며든 뒤부터 시작된다고 믿습니다.</p></div></section>
+    <footer><span>FORM / FIELD ARCHITECTS</span><a href="mailto:hello@formfield.example">hello@formfield.example ↗</a><span>© 2026</span></footer>
+  </main>
 </template>
-
-<script setup>
-useHead({ title: 'Studio A | Architecture' })
+<script setup lang="ts">
+const menu = ref(false)
+const projects = [{ no:'01',type:'RESIDENTIAL',year:'2025',name:'A House, Seongbuk',description:'경사진 대지의 흐름을 따라 빛과 마당을 겹겹이 쌓은 집.',image:'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85' },{ no:'02',type:'CULTURAL',year:'2024',name:'The Archive Hall',description:'동네의 오래된 창고가 열린 기록실이 되는 과정.',image:'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85' },{ no:'03',type:'HOSPITALITY',year:'2023',name:'Slow Tide, Jeju',description:'바다를 향해 천천히 열리는 작은 숙소와 공용 라운지.',image:'https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=85' }]
+useHead({ title: 'FORM / FIELD | Architecture Studio' })
 definePageMeta({ layout: false })
 </script>
-
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto+Mono:wght@400&display=swap');
-
-.architecture {
-  font-family: 'Oswald', sans-serif;
-  background: #e5e5e5;
-  color: #1a1a1a;
-  min-height: 100vh;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 2rem 5%;
-  font-family: 'Roboto Mono', monospace;
-  font-weight: 700;
-  border-bottom: 2px solid #1a1a1a;
-}
-
-.hero {
-  display: flex;
-  height: 80vh;
-  border-bottom: 2px solid #1a1a1a;
-}
-
-.title-container {
-  width: 40%;
-  display: flex;
-  align-items: center;
-  padding: 0 5%;
-  border-right: 2px solid #1a1a1a;
-}
-
-h1 {
-  font-size: 6rem;
-  line-height: 0.9;
-  text-transform: uppercase;
-}
-
-.hero-image {
-  width: 60%;
-  height: 100%;
-}
-
-.hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(100%);
-}
-
-.project-list {
-  display: flex;
-  flex-direction: column;
-}
-
-.p-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 3rem 5%;
-  border-bottom: 2px solid #1a1a1a;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.p-row:hover {
-  background: #1a1a1a;
-  color: #e5e5e5;
-}
-
-.p-row h2 {
-  font-size: 3rem;
-  text-transform: uppercase;
-  margin: 0;
-}
-
-.p-row span {
-  font-family: 'Roboto Mono', monospace;
-  font-size: 1rem;
-}
-
-.about {
-  padding: 8rem 5%;
-  text-align: center;
-}
-
-.about p {
-  font-size: 2.5rem;
-  line-height: 1.4;
-  max-width: 1000px;
-  margin: 0 auto;
-  text-transform: uppercase;
-}
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono&family=Instrument+Serif:ital@0;1&family=SUIT:wght@400;500;700&display=swap');
+.studio{background:#e9e7df;color:#242724;min-height:100vh;font-family:SUIT,sans-serif}header{height:68px;padding:0 3vw;border-bottom:1px solid #242724;display:flex;align-items:center;justify-content:space-between;font:10px 'DM Mono',monospace;letter-spacing:.05em}header a{color:inherit;text-decoration:none;font-weight:700}header button{border:0;background:transparent;font:20px 'DM Mono',monospace;color:inherit}nav{position:absolute;z-index:3;left:0;right:0;top:68px;display:flex;gap:24px;padding:20px 3vw;background:#de3824}nav a{color:#fff;text-decoration:none;font:20px 'Instrument Serif',serif}.hero{display:grid;grid-template-columns:1fr 1fr;min-height:690px}.hero-title{padding:9vw 4vw;display:flex;flex-direction:column;justify-content:space-between}.hero-title p,.section-top,.office>p{font:10px 'DM Mono',monospace;letter-spacing:.07em}.hero h1{font:400 clamp(48px,6.3vw,94px)/.88 'Instrument Serif',serif;letter-spacing:-.06em;margin:0}.hero h1 em{color:#de3824}.hero-image{position:relative}.hero-image img{width:100%;height:100%;object-fit:cover;filter:saturate(.65)}.hero-image span{position:absolute;right:18px;bottom:18px;color:#fff;font:10px 'DM Mono',monospace}.projects{padding:26px 3vw 100px}.section-top{display:flex;justify-content:space-between;padding-bottom:13px;border-bottom:1px solid #242724}.section-top p{margin:0}.project{display:grid;grid-template-columns:12% 31% 1fr;min-height:470px;border-bottom:1px solid #242724}.project-meta{padding-top:20px;font:10px 'DM Mono',monospace}.project-meta p{line-height:1.5}.project-copy{padding:12vw 25px 25px 0;display:flex;flex-direction:column;align-items:flex-start}.project h2{font:400 clamp(34px,4vw,60px)/.9 'Instrument Serif',serif;margin:0}.project-copy>p{font-size:13px;line-height:1.7;max-width:200px}.project a{margin-top:auto;color:inherit;text-decoration:none;font:10px 'DM Mono',monospace;border-bottom:1px solid;padding-bottom:4px}.project img{width:100%;height:75%;margin:auto 0;object-fit:cover}.project-02 img{height:65%;}.office{padding:11vw 10vw;background:#de3824;color:#fff}.office h2{max-width:900px;font:400 clamp(38px,5vw,72px)/1 'Instrument Serif',serif;letter-spacing:-.05em;margin:40px 0 85px}.office>div{display:grid;grid-template-columns:1fr 1fr;gap:30px;border-top:1px solid #ffffff99;padding-top:16px;font:10px 'DM Mono',monospace}.office>div p{margin:0;font:14px/1.8 SUIT,sans-serif}footer{display:flex;justify-content:space-between;padding:20px 3vw;font:10px 'DM Mono',monospace}footer a{color:inherit;text-decoration:none}@media(max-width:650px){header span{display:none}.hero{grid-template-columns:1fr;min-height:0}.hero-title{height:490px;padding:45px 24px}.hero h1{font-size:57px}.hero-image{height:430px}.projects{padding:20px 16px 65px}.project{grid-template-columns:50px 1fr;min-height:0;padding:25px 0}.project-meta{grid-row:span 2;padding-top:0}.project-copy{padding:0;min-height:185px}.project h2{font-size:42px}.project img{grid-column:2;height:270px!important;margin-top:20px}.office{padding:75px 24px}.office h2{font-size:43px;margin:30px 0 60px}.office>div{grid-template-columns:1fr}.office>div p{font-size:13px}footer{gap:15px;flex-wrap:wrap;padding:20px 24px}}
 </style>
