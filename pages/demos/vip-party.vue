@@ -185,25 +185,25 @@
         <h2 class="center">참석 여부를 알려주세요</h2>
         <p class="rsvp-note">2026년 12월 20일까지 회신 부탁드립니다.</p>
 
-        <form v-if="!sent" class="rsvp-form" @submit.prevent="sent = true">
+        <form v-if="!sent" class="rsvp-form" @submit.prevent="submitRsvp">
           <label>
             성함
-            <input type="text" required placeholder="홍길동">
+            <input v-model="form.name" type="text" required placeholder="홍길동">
           </label>
           <label>
             연락처
-            <input type="tel" required placeholder="010-0000-0000">
+            <input v-model="form.phone" type="tel" required placeholder="010-0000-0000">
           </label>
 
           <fieldset class="attend">
             <span class="fs-label">참석 여부</span>
             <div class="opts">
               <label class="opt">
-                <input type="radio" name="attend" value="yes" checked>
+                <input v-model="form.attend" type="radio" name="attend" value="yes">
                 <span>참석합니다</span>
               </label>
               <label class="opt">
-                <input type="radio" name="attend" value="no">
+                <input v-model="form.attend" type="radio" name="attend" value="no">
                 <span>참석이 어렵습니다</span>
               </label>
             </div>
@@ -211,7 +211,7 @@
 
           <label>
             동반 인원
-            <select>
+            <select v-model="form.companions">
               <option value="0">동반 없음 (본인만)</option>
               <option value="1">1인 동반</option>
             </select>
@@ -219,17 +219,33 @@
 
           <label>
             식이 요청사항 (선택)
-            <input type="text" placeholder="알러지, 채식 등">
+            <input v-model="form.diet" type="text" placeholder="알러지, 채식 등">
           </label>
 
-          <button type="submit" class="rsvp submit">RSVP 제출하기</button>
+          <button type="submit" class="rsvp submit" :disabled="!form.name.trim()">RSVP 제출하기</button>
         </form>
 
         <div v-else class="rsvp-done">
           <div class="done-mark">✓</div>
           <h3>회신이 접수되었습니다</h3>
           <p>THE GALA 2026에서 뵙기를 기다리겠습니다.<br>확인 안내를 문자로 보내드립니다.</p>
-          <button class="rsvp ghost" @click="sent = false">다시 작성하기</button>
+
+          <dl class="rsvp-summary">
+            <div>
+              <dt>성함</dt>
+              <dd>{{ form.name }} 님</dd>
+            </div>
+            <div>
+              <dt>참석 여부</dt>
+              <dd>{{ form.attend === 'yes' ? '참석' : '불참' }}</dd>
+            </div>
+            <div>
+              <dt>동반 인원</dt>
+              <dd>{{ form.companions === '1' ? '1인 동반' : '동반 없음' }}</dd>
+            </div>
+          </dl>
+
+          <button class="rsvp ghost" @click="resetRsvp">다시 작성하기</button>
         </div>
       </div>
     </section>
@@ -273,6 +289,23 @@ definePageMeta({ layout: false })
 const tab = ref(0)
 const openFaq = ref(-1)
 const sent = ref(false)
+
+const form = ref({
+  name: '',
+  phone: '',
+  attend: 'yes',
+  companions: '0',
+  diet: '',
+})
+
+const submitRsvp = () => {
+  if (!form.value.name.trim()) return
+  sent.value = true
+}
+
+const resetRsvp = () => {
+  sent.value = false
+}
 
 const tabs = [
   {
@@ -851,6 +884,37 @@ section h2 {
 
 .submit {
   margin-top: 0.5rem;
+}
+
+.rsvp:disabled {
+  background: rgba(212,175,55,0.25);
+  color: #55492c;
+  cursor: not-allowed;
+}
+
+.rsvp-summary {
+  border-top: 1px solid rgba(212,175,55,0.25);
+  margin: 0 0 2rem;
+  text-align: left;
+}
+
+.rsvp-summary div {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(212,175,55,0.25);
+  padding: 1rem 0;
+}
+
+.rsvp-summary dt {
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  color: #8c7322;
+}
+
+.rsvp-summary dd {
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  color: #e8d9a0;
 }
 
 .rsvp-done {

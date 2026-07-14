@@ -27,6 +27,7 @@
       <div class="date-card">
         <strong>17</strong>
         <div><span>OCTOBER 2026</span><b>SATURDAY · 4:00 PM</b></div>
+        <em v-if="dday !== null" class="dday">{{ dday > 0 ? `D-${dday}` : dday === 0 ? 'D-DAY' : `D+${-dday}` }}</em>
       </div>
       <div class="venue"><span>VENUE</span><b>Layer 7 Seongsu<br>서울 성동구 서울숲길 57, 7F</b></div>
       <div class="venue"><span>DRESS CODE</span><b>가을빛 어스톤, 편안한 옷차림 환영</b></div>
@@ -116,7 +117,7 @@
       <h2>자리를 비워둘게요.</h2>
       <div class="choice-row"><button :class="{ selected: attendance === 'yes' }" @click="attendance = 'yes'">기쁘게 참석</button><button :class="{ selected: attendance === 'no' }" @click="attendance = 'no'">마음으로 축하</button></div>
       <input v-model="guestName" type="text" placeholder="성함을 알려주세요">
-      <button class="primary wide" @click="sent = true">{{ sent ? '전해졌어요. 고마워요.' : '참석 의사 보내기' }}</button>
+      <button class="primary wide" :disabled="!guestName.trim() && !sent" @click="submit">{{ sent ? '전해졌어요. 고마워요.' : '참석 의사 보내기' }}</button>
     </section>
 
     <!-- 08 / 안내사항 -->
@@ -135,6 +136,11 @@
 const attendance = ref('yes')
 const guestName = ref('')
 const sent = ref(false)
+const dday = ref<number | null>(null)
+const submit = () => {
+  if (!guestName.value.trim()) return
+  sent.value = true
+}
 const plan = [
   { time: '15:20', title: 'DOORS OPEN', detail: '웰컴 드링크와 포토 부스' },
   { time: '16:00', title: 'CEREMONY', detail: '두 사람의 약속' },
@@ -153,6 +159,13 @@ const tips = [
 ]
 
 onMounted(() => {
+  const target = new Date('2026-10-17T16:00:00+09:00')
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+  const day = new Date(target)
+  day.setHours(0, 0, 0, 0)
+  dday.value = Math.round((day.getTime() - today.getTime()) / 86400000)
+
   const els = document.querySelectorAll('.reveal')
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
@@ -191,6 +204,7 @@ definePageMeta({ layout: false })
 .date-card strong{font:500 74px/.8 'Playfair Display',serif}
 .date-card div{display:grid;gap:6px;font:11px 'DM Mono',monospace;letter-spacing:.08em}
 .date-card b{font:500 13px Pretendard,sans-serif}
+.date-card .dday{margin-left:auto;font:600 12px 'DM Mono',monospace;letter-spacing:.1em;color:#1c1b19;background:#f1e7d6;padding:7px 11px;border-radius:2px}
 .venue{display:grid;gap:9px;padding:24px 0;font-size:14px;line-height:1.6;border-bottom:1px solid #38352f}
 .venue span{font:10px 'DM Mono',monospace;color:#aaa39a}
 .primary{display:flex;justify-content:space-between;align-items:center;padding:17px 18px;margin-top:26px;background:#f1e7d6;color:#1c1b19;text-decoration:none;border:0;font:700 14px Pretendard,sans-serif;cursor:pointer}
@@ -232,6 +246,7 @@ definePageMeta({ layout: false })
 .rsvp input{box-sizing:border-box;width:100%;padding:16px;margin-bottom:10px;border:1px solid #ffffff80;background:transparent;color:#fff;font:14px Pretendard,sans-serif}
 .rsvp input::placeholder{color:#ffe6df}
 .wide{width:100%;background:#1d1c1a;color:#fff;justify-content:center;margin-top:0}
+.wide:disabled{opacity:.5;cursor:not-allowed}
 .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px 20px;margin-top:34px}
 .info-grid b{display:block;font:10px 'DM Mono',monospace;letter-spacing:.1em;color:#8a8578;margin-bottom:8px}
 .info-grid p{margin:0;font-size:13px;line-height:1.7;color:#3f3c37}

@@ -40,6 +40,9 @@
     <section class="section reveal">
       <p class="index">01 — CEREMONY</p>
       <h2 class="display">예식 정보</h2>
+      <p v-if="dday !== null" class="dday">
+        예식까지 <strong>{{ dday > 0 ? `D-${dday}` : dday === 0 ? 'D-DAY' : `D+${-dday}` }}</strong>
+      </p>
       <div class="info-strip">
         <article v-for="item in ceremonyInfo" :key="item.label">
           <span>{{ item.label }}</span>
@@ -287,6 +290,9 @@ const toggleFaq = (i) => {
   openFaq.value = openFaq.value === i ? -1 : i
 }
 
+const weddingDate = new Date('2026-10-24T17:30:00+09:00')
+const dday = ref(null)
+
 const guestbookForm = ref({ name: '', message: '' })
 const guestbookEntries = ref([
   { id: 1, name: '수민', message: '두 사람답게 감각적인 초대장이라 더 기대돼요. 진심으로 축하합니다.', date: '2026.07.13' },
@@ -334,6 +340,11 @@ const changeGuestbookPage = (page) => {
 }
 
 onMounted(() => {
+  const today = new Date()
+  const startOfToday = new Date(today.getFullYear(), today.getMonth(), today.getDate())
+  const startOfWedding = new Date(weddingDate.getFullYear(), weddingDate.getMonth(), weddingDate.getDate())
+  dday.value = Math.round((startOfWedding - startOfToday) / 86400000)
+
   const io = new IntersectionObserver((entries) => entries.forEach((entry) => {
     if (entry.isIntersecting) entry.target.classList.add('in')
   }), { threshold: 0.15 })
@@ -522,6 +533,20 @@ h1 span {
 }
 
 /* ---------- ceremony info ---------- */
+.dday {
+  margin: -0.6rem 0 1.4rem;
+  font: 900 0.8rem 'Archivo', sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.dday strong {
+  color: var(--ink);
+  font-size: 1.4rem;
+  letter-spacing: -0.01em;
+}
+
 .info-strip {
   display: grid;
   gap: 0;

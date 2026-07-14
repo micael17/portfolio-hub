@@ -206,7 +206,7 @@ async function copyAccount(a: { bank: string; no: string }, i: number) {
     copied.value = i
     setTimeout(() => { if (copied.value === i) copied.value = null }, 1600)
   } catch {
-    copied.value = i
+    // 클립보드 접근 실패(비보안 컨텍스트 등) 시 성공 표시 없이 조용히 무시
   }
 }
 

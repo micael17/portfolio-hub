@@ -52,7 +52,12 @@
             <span>건물 지하 주차장 2시간 무료 (파티룸에서 확인 도장)</span>
           </li>
         </ul>
-        <a class="map-link" href="#" @click.prevent>지도 앱으로 위치 열기 →</a>
+        <a
+          class="map-link"
+          href="https://www.openstreetmap.org/search?query=서울시 마포구 월드컵북로 123"
+          target="_blank"
+          rel="noopener"
+        >지도에서 위치 열기 →</a>
       </div>
 
       <!-- 안내 아코디언 -->

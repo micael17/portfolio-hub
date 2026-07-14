@@ -74,9 +74,8 @@
         <h2>정원의 순간들</h2>
       </div>
       <div class="gallery">
+        <!-- AI-IMG: 각 이미지 소재/생성 프롬프트는 아래 galleryImages 배열의 item.prompt 참조 (모두 야외 가든 웨딩 톤 · 4:3) -->
         <figure v-for="(photo, index) in galleryImages" :key="photo.alt" class="reveal" :class="`g-${index % 3}`">
-          <!-- AI-IMG: 야외 가든 웨딩, 그린 식물·따뜻한 자연광 · 4:3 -->
-          <!-- prompt: outdoor garden wedding, lush greenery, warm natural light, botanical, 4:3 -->
           <img :src="photo.src" :alt="photo.alt" loading="lazy">
         </figure>
       </div>
@@ -259,12 +258,36 @@ const timeline = [
 ]
 
 const galleryImages = [
-  { src: '/images/wedding-ai/garden-couple.png', alt: '정원 산책로를 함께 걷는 신랑 신부' },
-  { src: '/images/wedding-ai/garden-couple-close.png', alt: '초록 배경 앞에서 마주보는 두 사람' },
-  { src: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=85', alt: '가든 파티 테이블에 놓인 꽃 장식' },
-  { src: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85', alt: '초록 잎으로 꾸민 야외 예식 아치' },
-  { src: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=900&q=85', alt: '햇살이 스며드는 정원의 하객 좌석' },
-  { src: 'https://images.unsplash.com/photo-1478146896981-b80fe463b330?auto=format&fit=crop&w=900&q=85', alt: '들꽃과 유칼립투스로 엮은 부케' }
+  {
+    src: '/images/wedding-ai/garden-couple.png',
+    alt: '햇살 드는 정원 산책로를 손잡고 함께 걷는 신랑 신부',
+    prompt: 'bride and groom walking hand in hand along a sunlit garden path, lush greenery, warm afternoon light, botanical outdoor wedding, 4:3'
+  },
+  {
+    src: '/images/wedding-ai/garden-couple-close.png',
+    alt: '초록 잎 배경 앞에서 서로 마주보며 웃는 두 사람의 클로즈업',
+    prompt: 'close-up of a couple smiling at each other in front of green foliage, soft natural light, intimate botanical wedding portrait, 4:3'
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=85',
+    alt: '유칼립투스와 흰 꽃으로 세팅한 가든 리셉션 테이블',
+    prompt: 'garden reception dining table set with eucalyptus and white floral centerpieces, natural daylight, elegant outdoor wedding, 4:3'
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85',
+    alt: '초록 넝쿨과 꽃으로 장식한 야외 예식 아치',
+    prompt: 'outdoor ceremony arch draped with green vines and flowers, standing on a lawn, sunny botanical wedding, 4:3'
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=900&q=85',
+    alt: '햇살이 스며드는 정원에 정돈된 하객 좌석',
+    prompt: 'rows of guest chairs arranged on a garden lawn with dappled sunlight filtering through trees, outdoor wedding seating, 4:3'
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1478146896981-b80fe463b330?auto=format&fit=crop&w=900&q=85',
+    alt: '들꽃과 유칼립투스 잎으로 엮은 자연스러운 신부 부케',
+    prompt: 'natural bridal bouquet of wildflowers and eucalyptus leaves held in hand, soft light, botanical garden wedding, 4:3'
+  }
 ]
 
 const moods = [

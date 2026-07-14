@@ -14,12 +14,11 @@
       <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="호텔 그랜드 볼룸 입구에 선 신랑 신부">
       <div class="hero-shade"></div>
       <div class="hero-title"><p>AN EVENING AT THE</p><h1>ST. MONT<br>SEOUL</h1><span>MINSEO &amp; JIWON · 07 NOV 2026</span></div>
-      <button class="sound" @click="playing = !playing">{{ playing ? 'II' : '▶' }} <small>{{ playing ? 'MUSIC ON' : 'PLAY MUSIC' }}</small></button>
     </section>
 
     <section id="welcome" class="welcome"><p class="label">YOU ARE INVITED</p><h2>저녁이 가장 아름다운 시간,<br>우리의 시작에 초대합니다.</h2><p>깊어가는 가을밤, 가장 아끼는 분들과 식탁을 나누고 싶습니다. 편안한 마음으로 오셔서 두 사람의 첫 건배를 함께해 주세요.</p></section>
 
-    <section class="event-card"><p class="label">THE OCCASION</p><div class="big-date"><span>NOV</span><strong>07</strong><span>2026<br>SAT</span></div><div class="event-line"><b>6:00 PM</b><span>St. Mont Seoul<br>Grand Ballroom, 3F</span></div><p class="dday">민서 ♥ 지원의 결혼식까지 <b>D-{{ dday }}</b></p><a href="#reply">RSVP NOW <i>→</i></a></section>
+    <section class="event-card"><p class="label">THE OCCASION</p><div class="big-date"><span>NOV</span><strong>07</strong><span>2026<br>SAT</span></div><div class="event-line"><b>6:00 PM</b><span>St. Mont Seoul<br>Grand Ballroom, 3F</span></div><p v-if="dday !== null" class="dday">민서 ♥ 지원의 결혼식까지 <b>D-{{ dday }}</b></p><a href="#reply">RSVP NOW <i>→</i></a></section>
 
     <section class="schedule"><p class="label">YOUR EVENING</p><article v-for="item in schedule" :key="item.time"><span>{{ item.time }}</span><div><b>{{ item.title }}</b><p>{{ item.desc }}</p></div></article></section>
 
@@ -90,9 +89,10 @@
 </template>
 
 <script setup lang="ts">
-const playing = ref(false), menu = ref(false), reply = ref('yes'), name = ref(''), guests = ref(2), sent = ref(false), copied = ref(''), openFaq = ref(-1)
+const menu = ref(false), reply = ref('yes'), name = ref(''), guests = ref(2), sent = ref(false), copied = ref(''), openFaq = ref(-1)
 
-const dday = Math.max(0, Math.ceil((new Date(2026, 10, 7).getTime() - Date.now()) / 864e5))
+const dday = ref<number | null>(null)
+onMounted(() => { dday.value = Math.max(0, Math.ceil((new Date(2026, 10, 7).getTime() - Date.now()) / 864e5)) })
 
 const copy = (key: string, text: string) => {
   if (import.meta.client && navigator.clipboard) navigator.clipboard.writeText(text)
@@ -124,7 +124,7 @@ definePageMeta({ layout: false })
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono&family=Manrope:wght@400;600;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap');
 .invite{max-width:540px;margin:auto;background:#161514;color:#f3ede5;min-height:100vh;font-family:Manrope,sans-serif;position:relative}
-.hero{height:100svh;min-height:650px;position:relative;overflow:hidden}.hero img{width:100%;height:100%;object-fit:cover}.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,#0a080533,transparent 45%,#090806cc)}.hero-title{position:absolute;left:25px;bottom:34px}.hero-title p,.label{margin:0 0 14px;font:10px 'DM Mono',monospace;letter-spacing:.16em;color:#c6a97f}.hero-title h1{margin:0 0 15px;font:500 clamp(52px,15vw,76px)/.83 'Playfair Display',serif;letter-spacing:-.07em}.hero-title span{font:10px 'DM Mono',monospace;letter-spacing:.07em}.sound{position:absolute;top:23px;right:20px;border:0;background:#ffffff20;border-radius:30px;color:#fff;padding:10px 12px;font:12px 'DM Mono',monospace;backdrop-filter:blur(8px);cursor:pointer}.sound small{font-size:9px;margin-left:4px}
+.hero{height:100svh;min-height:650px;position:relative;overflow:hidden}.hero img{width:100%;height:100%;object-fit:cover}.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,#0a080533,transparent 45%,#090806cc)}.hero-title{position:absolute;left:25px;bottom:34px}.hero-title p,.label{margin:0 0 14px;font:10px 'DM Mono',monospace;letter-spacing:.16em;color:#c6a97f}.hero-title h1{margin:0 0 15px;font:500 clamp(52px,15vw,76px)/.83 'Playfair Display',serif;letter-spacing:-.07em}.hero-title span{font:10px 'DM Mono',monospace;letter-spacing:.07em}
 .welcome,.schedule,.location,.gallery,.account,.notice{padding:68px 25px}.welcome h2,.reply h2,.location h2,.account h2,.notice h2{font:500 30px/1.24 'Playfair Display',serif;letter-spacing:-.04em;margin:0}.welcome>p:last-child,.dress>p:last-child,.location>p:nth-of-type(2){font-size:14px;line-height:1.9;color:#c8c0b7;margin:26px 0 0}
 .event-card{margin:0 15px;padding:30px 22px;background:#31221d;border:1px solid #876b4a}.big-date{display:flex;align-items:center;gap:15px;padding:8px 0 25px;border-bottom:1px solid #886f50}.big-date strong{font:500 78px/.8 'Playfair Display',serif}.big-date span{font:10px/1.5 'DM Mono',monospace;color:#d4bd99}.event-line{display:flex;justify-content:space-between;align-items:center;padding:24px 0;font-size:13px;line-height:1.5}.event-line span{text-align:right;color:#ded3c5}.dday{text-align:center;font-size:12px;color:#e2cca8;letter-spacing:.04em;margin:0 0 20px;padding-bottom:20px;border-bottom:1px solid #886f50}.dday b{font:500 15px 'Playfair Display',serif;color:#f3ede5}.event-card a{display:flex;justify-content:space-between;color:#f3ede5;text-decoration:none;font:10px 'DM Mono',monospace;letter-spacing:.1em}.event-card i{font-style:normal;font-size:17px}
 .schedule article{display:grid;grid-template-columns:78px 1fr;gap:13px;padding:18px 0;border-top:1px solid #373432}.schedule article>span{font:10px 'DM Mono',monospace;color:#c6a97f}.schedule b{font-size:13px}.schedule p{font-size:12px;color:#aaa39b;margin:7px 0 0}
