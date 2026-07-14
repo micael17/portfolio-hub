@@ -7,10 +7,11 @@
         <a href="#features">Features</a>
         <a href="#testimonials">Testimonials</a>
         <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
       </div>
       <div class="nav-actions">
-        <a href="#" class="login">Log In</a>
-        <a href="#contact" class="btn-primary">Get Started</a>
+        <a href="#contact" class="login">Log In</a>
+        <a href="#contact" class="btn-primary">Book a Demo</a>
       </div>
     </nav>
     
@@ -22,13 +23,15 @@
           <h1>The Operating System for B2B Sales Teams</h1>
           <p>NexusHQ helps modern teams unify their data, automate complex workflows, and close deals 40% faster. Join 10,000+ top performing companies.</p>
           <div class="hero-actions">
-            <a href="#" class="btn-primary large">Start 14-Day Free Trial</a>
-            <a href="#" class="btn-secondary large"><i class="fa-solid fa-play"></i> Watch Product Tour</a>
+            <a href="#contact" class="btn-primary large">Start 14-Day Free Trial</a>
+            <a href="#contact" class="btn-secondary large"><i class="fa-solid fa-play"></i> Watch Product Tour</a>
           </div>
           <p class="no-cc">No credit card required. Cancel anytime.</p>
         </div>
         <div class="hero-image">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1000&q=80" alt="Dashboard Dashboard" class="dashboard-mockup">
+          <!-- AI-IMG: B2B SaaS 매출 대시보드 UI, 다크 테마 · 16:9 -->
+          <!-- prompt: minimal dark-theme B2B SaaS revenue dashboard UI, clean charts and sales pipeline, subtle blue accent, 16:9 -->
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1000&q=80" alt="NexusHQ 매출 파이프라인 대시보드 화면" class="dashboard-mockup">
         </div>
       </section>
 
@@ -41,6 +44,19 @@
           <div class="brand">Soylent</div>
           <div class="brand">Initech</div>
           <div class="brand">Stark Ind.</div>
+          <div class="brand">Umbrella</div>
+          <div class="brand">Hooli</div>
+          <div class="brand">Vandelay</div>
+        </div>
+      </section>
+
+      <!-- Metrics / Social Proof Numbers -->
+      <section class="metrics" ref="metricsRef">
+        <div class="metrics-inner">
+          <div v-for="(m, i) in metrics" :key="i" class="metric">
+            <div class="metric-value">{{ formatMetric(m) }}</div>
+            <div class="metric-label">{{ m.label }}</div>
+          </div>
         </div>
       </section>
 
@@ -56,7 +72,9 @@
           </ul>
         </div>
         <div class="feature-img">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Workflow">
+          <!-- AI-IMG: 노코드 워크플로우 자동화 빌더 화면, 다크 테마 · 4:3 -->
+          <!-- prompt: dark-theme no-code workflow automation builder, drag and drop nodes and branches, blue accent, clean -->
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="드래그 앤 드롭 워크플로우 자동화 빌더 화면">
         </div>
       </section>
 
@@ -72,7 +90,9 @@
           </ul>
         </div>
         <div class="feature-img">
-          <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80" alt="Analytics">
+          <!-- AI-IMG: 실시간 매출 분석 리포트 대시보드, 다크 테마 · 4:3 -->
+          <!-- prompt: dark-theme revenue intelligence analytics dashboard, forecasting charts and drill-down reports, blue accent -->
+          <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80" alt="실시간 매출 예측 분석 리포트 화면">
         </div>
       </section>
 
@@ -121,7 +141,7 @@
               <li>Basic CRM integration</li>
               <li>1,000 Automations/mo</li>
             </ul>
-            <button class="btn-secondary w-100">Start Free Trial</button>
+            <button class="btn-secondary w-100" @click="choosePlan('Starter')">Start Free Trial</button>
           </div>
           <div class="p-card featured">
             <div class="popular-badge">Most Popular</div>
@@ -134,7 +154,7 @@
               <li>Unlimited Automations</li>
               <li>Priority Support</li>
             </ul>
-            <button class="btn-primary w-100">Start Free Trial</button>
+            <button class="btn-primary w-100" @click="choosePlan('Professional')">Start Free Trial</button>
           </div>
           <div class="p-card">
             <h3>Enterprise</h3>
@@ -146,19 +166,76 @@
               <li>Custom API Limits</li>
               <li>SSO & SOC2</li>
             </ul>
-            <button class="btn-secondary w-100">Contact Sales</button>
+            <button class="btn-secondary w-100" @click="choosePlan('Enterprise')">Contact Sales</button>
           </div>
         </div>
       </section>
 
-      <!-- CTA -->
+      <!-- FAQ -->
+      <section class="faq" id="faq">
+        <h2 class="section-title text-center">Frequently asked questions</h2>
+        <p class="text-center subtitle">Everything you need to know before getting started.</p>
+        <div class="faq-list">
+          <div v-for="(item, i) in faqs" :key="i" class="faq-item" :class="{ open: openFaq === i }">
+            <button
+              class="faq-question"
+              :aria-expanded="openFaq === i"
+              :aria-controls="`faq-panel-${i}`"
+              @click="toggleFaq(i)"
+            >
+              <span>{{ item.q }}</span>
+              <i class="fa-solid" :class="openFaq === i ? 'fa-minus' : 'fa-plus'"></i>
+            </button>
+            <div v-show="openFaq === i" :id="`faq-panel-${i}`" class="faq-answer" role="region">
+              <p>{{ item.a }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA / Demo Request -->
       <section class="cta" id="contact">
         <div class="cta-content">
           <h2>Ready to accelerate your growth?</h2>
-          <p>Join thousands of companies using NexusHQ to close more deals.</p>
-          <div class="cta-form">
-            <input type="email" placeholder="Enter your work email">
-            <button class="btn-primary">Get Started</button>
+          <p>Book a personalized demo and see how NexusHQ fits your sales team. No credit card, no commitment.</p>
+
+          <form v-if="!submitted" class="demo-form" @submit.prevent="submitForm" novalidate>
+            <p v-if="form.plan" class="plan-pill">Selected plan: <strong>{{ form.plan }}</strong></p>
+            <div class="form-row">
+              <label class="field">
+                <span>Full name</span>
+                <input v-model.trim="form.name" type="text" placeholder="Jane Doe" autocomplete="name">
+              </label>
+              <label class="field">
+                <span>Work email</span>
+                <input v-model.trim="form.email" type="email" placeholder="jane@company.com" autocomplete="email">
+              </label>
+            </div>
+            <div class="form-row">
+              <label class="field">
+                <span>Company</span>
+                <input v-model.trim="form.company" type="text" placeholder="Acme Inc." autocomplete="organization">
+              </label>
+              <label class="field">
+                <span>Team size</span>
+                <select v-model="form.size">
+                  <option value="">Select…</option>
+                  <option value="1-10">1–10</option>
+                  <option value="11-50">11–50</option>
+                  <option value="51-200">51–200</option>
+                  <option value="200+">200+</option>
+                </select>
+              </label>
+            </div>
+            <p v-if="formError" class="form-error">{{ formError }}</p>
+            <button type="submit" class="btn-primary large w-100">Book my demo</button>
+            <p class="form-note">By submitting, you agree to receive product updates. Unsubscribe anytime.</p>
+          </form>
+
+          <div v-else class="demo-success" role="status">
+            <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <h3>Thanks, {{ form.name }}! 🎉</h3>
+            <p>Our team will reach out to <strong>{{ form.email }}</strong> within one business day to schedule your demo.</p>
           </div>
         </div>
       </section>
@@ -173,23 +250,23 @@
         </div>
         <div class="f-col">
           <h4>Product</h4>
-          <a href="#">Features</a>
-          <a href="#">Integrations</a>
-          <a href="#">Pricing</a>
-          <a href="#">Changelog</a>
+          <a href="#features">Features</a>
+          <a href="#features">Integrations</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Book a Demo</a>
         </div>
         <div class="f-col">
           <h4>Resources</h4>
-          <a href="#">Blog</a>
-          <a href="#">Help Center</a>
-          <a href="#">Sales Guides</a>
-          <a href="#">API Docs</a>
+          <a href="#testimonials">Customer Stories</a>
+          <a href="#faq">Help Center</a>
+          <a href="#faq">FAQ</a>
+          <a href="#features">Product Tour</a>
         </div>
         <div class="f-col">
           <h4>Company</h4>
-          <a href="#">About Us</a>
-          <a href="#">Careers</a>
-          <a href="#">Contact</a>
+          <a href="#testimonials">About Us</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact Sales</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -200,9 +277,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, reactive, onMounted, onUnmounted } from 'vue'
 
-useHead({ 
+useHead({
   title: 'NexusHQ | Full B2B SaaS Platform Demo',
   link: [{ rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' }]
 })
@@ -214,8 +291,106 @@ const handleScroll = () => {
   isScrolled.value = window.scrollY > 50
 }
 
+/* Metrics count-up */
+const metricsRef = ref(null)
+const hasAnimated = ref(false)
+const metrics = ref([
+  { value: 0, target: 10000, suffix: '+', label: 'Companies onboarded' },
+  { value: 0, target: 40, suffix: '%', label: 'Faster sales cycle' },
+  { value: 0, target: 32, suffix: '%', label: 'Higher average win rate' },
+  { value: 0, target: 99.9, suffix: '%', decimals: 1, label: 'Uptime SLA' }
+])
+
+const formatMetric = (m) => {
+  const v = m.decimals
+    ? m.value.toFixed(m.decimals)
+    : Math.round(m.value).toLocaleString('en-US')
+  return `${m.prefix || ''}${v}${m.suffix || ''}`
+}
+
+const animateMetrics = () => {
+  const duration = 1800
+  const start = performance.now()
+  const step = (now) => {
+    const progress = Math.min((now - start) / duration, 1)
+    const eased = 1 - Math.pow(1 - progress, 3)
+    metrics.value.forEach((m) => { m.value = m.target * eased })
+    if (progress < 1) {
+      requestAnimationFrame(step)
+    } else {
+      metrics.value.forEach((m) => { m.value = m.target })
+    }
+  }
+  requestAnimationFrame(step)
+}
+
+/* FAQ accordion */
+const openFaq = ref(-1)
+const toggleFaq = (i) => { openFaq.value = openFaq.value === i ? -1 : i }
+const faqs = [
+  {
+    q: 'How long does implementation take?',
+    a: 'Most teams are fully onboarded within a day. Our guided setup imports your CRM data, maps your pipeline stages, and connects your email in minutes — no engineering required.'
+  },
+  {
+    q: 'Which tools does NexusHQ integrate with?',
+    a: 'We offer 500+ native integrations, including Salesforce, HubSpot, Slack, Gmail, Outlook, and Zapier. Anything not covered natively can be connected through our REST API and webhooks.'
+  },
+  {
+    q: 'Is my data secure?',
+    a: 'Yes. NexusHQ is SOC 2 Type II certified and GDPR compliant. All data is encrypted in transit and at rest, with SSO and role-based access controls available on Professional and Enterprise plans.'
+  },
+  {
+    q: 'Can I change or cancel my plan later?',
+    a: 'Absolutely. You can upgrade, downgrade, or cancel at any time from your billing settings. Changes take effect at the start of your next billing cycle, and unused time is prorated.'
+  },
+  {
+    q: 'Do you offer onboarding support?',
+    a: 'Every plan includes access to our help center and email support. Professional plans add priority support, and Enterprise customers get a dedicated success manager and custom onboarding.'
+  }
+]
+
+/* Demo request form */
+const form = reactive({ name: '', email: '', company: '', size: '', plan: '' })
+const formError = ref('')
+const submitted = ref(false)
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+const choosePlan = (plan) => {
+  form.plan = plan
+  if (typeof document !== 'undefined') {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+  }
+}
+
+const submitForm = () => {
+  if (!form.name.trim()) {
+    formError.value = 'Please enter your full name.'
+    return
+  }
+  if (!emailPattern.test(form.email)) {
+    formError.value = 'Please enter a valid work email address.'
+    return
+  }
+  formError.value = ''
+  submitted.value = true
+}
+
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
+
+  if (typeof window !== 'undefined' && 'IntersectionObserver' in window && metricsRef.value) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !hasAnimated.value) {
+          hasAnimated.value = true
+          animateMetrics()
+          observer.disconnect()
+        }
+      })
+    }, { threshold: 0.3 })
+    observer.observe(metricsRef.value)
+  }
 })
 
 onUnmounted(() => {
@@ -415,13 +590,43 @@ h1, h2, h3, h4 { font-weight: 700; }
 .p-card li { margin-bottom: 1rem; color: #e4e4e7; }
 .p-card li::before { content: '✓'; color: #3b82f6; margin-right: 10px; font-weight: bold; }
 
-/* CTA */
+/* Metrics */
+.metrics { padding: 6rem 5%; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.metrics-inner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; max-width: 1400px; margin: 0 auto; text-align: center; }
+.metric-value { font-size: 3.5rem; font-weight: 900; letter-spacing: -2px; background: linear-gradient(135deg, #fff 0%, #60a5fa 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.metric-label { color: #a1a1aa; font-size: 1rem; margin-top: 0.75rem; }
+
+/* FAQ */
+.faq { padding: 8rem 5%; max-width: 800px; margin: 0 auto; }
+.faq-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+.faq-item { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; overflow: hidden; transition: border-color 0.2s; }
+.faq-item.open { border-color: rgba(59, 130, 246, 0.4); }
+.faq-question { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.5rem; background: none; border: none; color: #fff; font-family: inherit; font-size: 1.15rem; font-weight: 600; text-align: left; cursor: pointer; }
+.faq-question i { color: #60a5fa; font-size: 0.9rem; flex-shrink: 0; }
+.faq-answer { padding: 0 1.5rem 1.5rem; }
+.faq-answer p { color: #a1a1aa; line-height: 1.7; font-size: 1.05rem; }
+
+/* CTA / Demo Request */
 .cta { padding: 8rem 5%; }
-.cta-content { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); padding: 5rem 2rem; border-radius: 24px; text-align: center; max-width: 1000px; margin: 0 auto; }
+.cta-content { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); padding: 4rem 2rem; border-radius: 24px; text-align: center; max-width: 720px; margin: 0 auto; }
 .cta-content h2 { font-size: 3rem; margin-bottom: 1rem; }
-.cta-content p { font-size: 1.2rem; color: rgba(255,255,255,0.8); margin-bottom: 3rem; }
-.cta-form { display: flex; gap: 1rem; max-width: 500px; margin: 0 auto; }
-.cta-form input { flex: 1; padding: 1rem 1.5rem; border-radius: 8px; border: none; font-size: 1rem; outline: none; }
+.cta-content p { font-size: 1.2rem; color: rgba(255,255,255,0.85); margin-bottom: 2.5rem; }
+.demo-form { max-width: 560px; margin: 0 auto; text-align: left; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.field { display: flex; flex-direction: column; gap: 0.4rem; }
+.field span { font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.9); }
+.field input, .field select { padding: 0.9rem 1rem; border-radius: 8px; border: none; font-size: 1rem; font-family: inherit; outline: none; background: #fff; color: #09090b; }
+.field select { appearance: none; -webkit-appearance: none; cursor: pointer; }
+.form-error { color: #fecaca; background: rgba(153, 27, 27, 0.35); padding: 0.6rem 0.9rem; border-radius: 8px; font-size: 0.9rem; margin: 0.5rem 0 1rem; }
+.cta-content .demo-form .btn-primary { background: #09090b; margin-top: 0.5rem; }
+.cta-content .demo-form .btn-primary:hover { background: #000; }
+.form-note { font-size: 0.8rem !important; color: rgba(255,255,255,0.7) !important; margin: 1rem 0 0 !important; text-align: center; }
+.plan-pill { display: inline-block; background: rgba(255,255,255,0.15); color: #fff; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; margin-bottom: 1.25rem; }
+.plan-pill strong { font-weight: 700; }
+.demo-success { padding: 1rem; }
+.success-icon { font-size: 3.5rem; color: #fff; margin-bottom: 1rem; }
+.demo-success h3 { font-size: 1.75rem; margin-bottom: 0.75rem; }
+.demo-success p { font-size: 1.1rem; color: rgba(255,255,255,0.9); margin-bottom: 0; }
 
 /* Footer */
 footer { border-top: 1px solid rgba(255,255,255,0.05); padding: 5rem 5% 2rem; background: #000; }
@@ -438,6 +643,16 @@ footer { border-top: 1px solid rgba(255,255,255,0.05); padding: 5rem 5% 2rem; ba
   .feature-detail.reverse .feature-img { order: 2; }
   .testimonial-grid, .pricing-grid { grid-template-columns: 1fr; }
   .p-card.featured { transform: scale(1); }
+  .metrics-inner { grid-template-columns: repeat(2, 1fr); gap: 3rem 2rem; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 640px) {
+  .hero h1 { font-size: 3rem; }
+  .section-title { font-size: 2rem; }
+  .cta-content h2 { font-size: 2.2rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .metric-value { font-size: 2.75rem; }
 }
 </style>
