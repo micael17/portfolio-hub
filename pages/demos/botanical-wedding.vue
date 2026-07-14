@@ -7,23 +7,44 @@
       <h1>서윤<br><span>+</span><br>예준</h1>
       <p class="hero-note">초록이 깊어지는 오후, 작은 정원에서 결혼식을 엽니다.</p>
       <div class="date-chip">2026.10.24 SAT 3:00 PM</div>
+      <p v-if="dDay !== null" class="dday-hero">
+        <template v-if="dDay > 0">두 사람의 정원까지 <strong>D-{{ dDay }}</strong></template>
+        <template v-else-if="dDay === 0"><strong>오늘</strong>, 정원에서 만나요</template>
+        <template v-else>함께해 주셔서 감사했습니다</template>
+      </p>
     </section>
 
     <section class="story-card">
       <div class="photo-stack">
-        <img src="/images/wedding-ai/garden-couple.png" alt="AI로 생성한 정원 웨딩 커플">
-        <img src="/images/wedding-ai/garden-couple-close.png" alt="AI로 생성한 야외 웨딩 포트레이트">
+        <!-- AI-IMG: 야외 가든 웨딩 커플, 그린 식물·따뜻한 자연광 · 3:4 -->
+        <!-- prompt: outdoor garden wedding couple portrait, lush greenery, warm natural light, botanical, 3:4 -->
+        <img src="/images/wedding-ai/garden-couple.png" alt="정원에서 손을 맞잡고 걷는 신랑 신부">
+        <!-- AI-IMG: 야외 웨딩 클로즈업 포트레이트, 자연광·초록 배경 · 3:4 -->
+        <!-- prompt: outdoor wedding couple close-up portrait, soft natural light, green foliage background, botanical, 3:4 -->
+        <img src="/images/wedding-ai/garden-couple-close.png" alt="자연광 아래 마주보며 웃는 두 사람">
       </div>
-      <p>
-        자연스러운 웃음과 느린 대화가 있는 하루를 준비했습니다.
-        바람이 지나가는 정원에서 두 사람의 새로운 시작을 함께 축복해 주세요.
+      <p class="greeting">
+        서로의 계절을 오래 지켜봐 온 두 사람이<br>
+        같은 정원을 함께 가꾸기로 했습니다.<br>
+        화려한 예식 대신, 바람과 초록이 지나는 오후에<br>
+        가까운 분들과 느린 하루를 나누고 싶습니다.<br>
+        귀한 걸음으로 두 사람의 새로운 시작을 축복해 주세요.
       </p>
+      <div class="hosts">
+        <p><span>윤재호 · 김선영</span>의 딸 <strong>서윤</strong></p>
+        <p><span>정민수 · 이하늘</span>의 아들 <strong>예준</strong></p>
+      </div>
     </section>
 
     <section class="section">
       <div class="section-head">
         <span>DETAILS</span>
-        <h2>초대 안내</h2>
+        <h2>예식 안내</h2>
+      </div>
+      <div v-if="dDay !== null && dDay >= 0" class="dday-banner">
+        <span>결혼식까지</span>
+        <strong>{{ dDay === 0 ? 'D-DAY' : `D-${dDay}` }}</strong>
+        <span>2026년 10월 24일 토요일</span>
       </div>
       <div class="detail-grid">
         <article v-for="item in invitationDetails" :key="item.label">
@@ -47,6 +68,20 @@
       </article>
     </section>
 
+    <section class="section gallery-section">
+      <div class="section-head">
+        <span>GALLERY</span>
+        <h2>정원의 순간들</h2>
+      </div>
+      <div class="gallery">
+        <figure v-for="(photo, index) in galleryImages" :key="photo.alt" class="reveal" :class="`g-${index % 3}`">
+          <!-- AI-IMG: 야외 가든 웨딩, 그린 식물·따뜻한 자연광 · 4:3 -->
+          <!-- prompt: outdoor garden wedding, lush greenery, warm natural light, botanical, 4:3 -->
+          <img :src="photo.src" :alt="photo.alt" loading="lazy">
+        </figure>
+      </div>
+    </section>
+
     <section class="section card-carousel">
       <div class="section-head">
         <span>MOOD</span>
@@ -59,21 +94,10 @@
       </div>
     </section>
 
-    <section class="section notes">
-      <div class="section-head">
-        <span>NOTICE</span>
-        <h2>참고해 주세요</h2>
-      </div>
-      <article v-for="note in guestNotes" :key="note.title">
-        <h3>{{ note.title }}</h3>
-        <p>{{ note.body }}</p>
-      </article>
-    </section>
-
     <section class="section map-card">
       <div class="section-head">
-        <span>MAP</span>
-        <h2>정원 위치</h2>
+        <span>LOCATION</span>
+        <h2>오시는 길</h2>
       </div>
       <iframe
         :src="mapInfo.embedUrl"
@@ -84,8 +108,18 @@
       <h3>{{ mapInfo.name }}</h3>
       <p>{{ mapInfo.address }}</p>
       <div class="button-grid">
-        <a :href="mapInfo.externalUrl" target="_blank" rel="noopener noreferrer">지도 열기</a>
+        <a :href="mapInfo.externalUrl" target="_blank" rel="noopener noreferrer">지도 보기</a>
         <button type="button" @click="copyText(mapInfo.address, 'address')">주소 복사</button>
+      </div>
+      <div class="directions">
+        <article v-for="way in directions.transit" :key="way.label">
+          <strong>{{ way.label }}</strong>
+          <p>{{ way.body }}</p>
+        </article>
+        <article class="parking">
+          <strong>주차</strong>
+          <p>{{ directions.parking }}</p>
+        </article>
       </div>
     </section>
 
@@ -94,6 +128,7 @@
         <span>ACCOUNT</span>
         <h2>마음 전하실 곳</h2>
       </div>
+      <p class="account-lead">참석이 어려우신 분들을 위해 계좌를 함께 안내드립니다. 축하하는 마음만으로도 충분히 감사합니다.</p>
       <div class="account-grid">
         <article v-for="account in accountInfo" :key="account.side">
           <strong>{{ account.side }}</strong>
@@ -106,6 +141,70 @@
         </article>
       </div>
       <p v-if="copyStatus" class="copy-feedback">{{ copyStatus }}</p>
+    </section>
+
+    <section class="section rsvp-section">
+      <div class="section-head">
+        <span>RSVP</span>
+        <h2>참석 회신</h2>
+      </div>
+      <p class="rsvp-lead">정원 좌석과 식사를 준비하는 데 큰 도움이 됩니다. 9월 30일까지 참석 여부를 알려 주세요.</p>
+
+      <form v-if="!sent" class="rsvp-form" @submit.prevent="submitRsvp">
+        <div class="chip-group" role="group" aria-label="구분">
+          <button
+            v-for="side in ['신랑측 하객', '신부측 하객']"
+            :key="side"
+            type="button"
+            class="chip"
+            :class="{ active: rsvpForm.side === side }"
+            @click="rsvpForm.side = side"
+          >{{ side }}</button>
+        </div>
+        <div class="chip-group" role="group" aria-label="참석 여부">
+          <button
+            v-for="option in ['참석', '미참석']"
+            :key="option"
+            type="button"
+            class="chip"
+            :class="{ active: rsvpForm.attendance === option }"
+            @click="rsvpForm.attendance = option"
+          >{{ option }}</button>
+        </div>
+        <input v-model.trim="rsvpForm.name" type="text" placeholder="성함" maxlength="20" aria-label="성함">
+        <div class="count-row">
+          <label for="rsvp-count">동반 인원(본인 포함)</label>
+          <input id="rsvp-count" v-model.number="rsvpForm.headcount" type="number" min="1" max="10" inputmode="numeric">
+        </div>
+        <button type="submit" class="rsvp-submit">회신 보내기</button>
+      </form>
+
+      <div v-else class="rsvp-sent">
+        <p class="sent-mark">🌿</p>
+        <h3>회신이 전달되었어요</h3>
+        <p>
+          {{ rsvpForm.name || '소중한 분' }}님, {{ rsvpForm.attendance }} 의사를 잘 받았습니다.<br>
+          <template v-if="rsvpForm.attendance === '참석'">정원에서 반갑게 맞이하겠습니다.</template>
+          <template v-else>함께하지 못해 아쉽지만, 마음 깊이 감사드립니다.</template>
+        </p>
+        <button type="button" @click="resetRsvp">다시 작성하기</button>
+      </div>
+    </section>
+
+    <section class="section faq-section">
+      <div class="section-head">
+        <span>NOTICE</span>
+        <h2>안내 사항</h2>
+      </div>
+      <div class="faq-list">
+        <article v-for="(faq, index) in faqItems" :key="faq.q" :class="{ open: openFaq === index }">
+          <button type="button" class="faq-q" :aria-expanded="openFaq === index" @click="toggleFaq(index)">
+            <span>{{ faq.q }}</span>
+            <em aria-hidden="true">{{ openFaq === index ? '−' : '+' }}</em>
+          </button>
+          <p v-show="openFaq === index" class="faq-a">{{ faq.a }}</p>
+        </article>
+      </div>
     </section>
 
     <section class="section guestbook">
@@ -133,10 +232,19 @@
         <button type="button" :disabled="guestbookPage === guestbookTotalPages" @click="changeGuestbookPage(guestbookPage + 1)">다음</button>
       </div>
     </section>
+
+    <footer class="garden-footer">
+      <p class="footer-mark">🌿</p>
+      <p class="footer-names">서윤 &amp; 예준</p>
+      <p class="footer-date">2026. 10. 24 · 그린하우스 가든</p>
+      <p class="footer-thanks">저희의 시작을 함께 기억해 주셔서 감사합니다.</p>
+    </footer>
   </main>
 </template>
 
 <script setup>
+const weddingDate = '2026-10-24T15:00:00'
+
 const invitationDetails = [
   { label: '일시', value: '2026년 10월 24일 토요일\n오후 3시 예식' },
   { label: '장소', value: '그린하우스 가든\n경기도 남양주시 화도읍 가온로 00' },
@@ -150,16 +258,19 @@ const timeline = [
   { time: '17:30', title: '선셋 디너', body: '노을이 내려앉는 시간에 정원 디너가 시작됩니다.' }
 ]
 
+const galleryImages = [
+  { src: '/images/wedding-ai/garden-couple.png', alt: '정원 산책로를 함께 걷는 신랑 신부' },
+  { src: '/images/wedding-ai/garden-couple-close.png', alt: '초록 배경 앞에서 마주보는 두 사람' },
+  { src: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=85', alt: '가든 파티 테이블에 놓인 꽃 장식' },
+  { src: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85', alt: '초록 잎으로 꾸민 야외 예식 아치' },
+  { src: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=900&q=85', alt: '햇살이 스며드는 정원의 하객 좌석' },
+  { src: 'https://images.unsplash.com/photo-1478146896981-b80fe463b330?auto=format&fit=crop&w=900&q=85', alt: '들꽃과 유칼립투스로 엮은 부케' }
+]
+
 const moods = [
   { title: 'Couple walk', image: '/images/wedding-ai/garden-couple.png' },
   { title: 'Garden vows', image: '/images/wedding-ai/garden-couple-close.png' },
   { title: 'After party', image: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=85' }
-]
-
-const guestNotes = [
-  { title: '복장 안내', body: '잔디 이동이 있어 편한 구두를 추천드립니다. 밝은 그린, 아이보리, 브라운 톤이 잘 어울립니다.' },
-  { title: '우천 안내', body: '비가 올 경우 글라스하우스 실내 예식으로 전환됩니다. 당일 오전 문자로 다시 안내드립니다.' },
-  { title: '셔틀 안내', body: '평내호평역 2번 출구에서 오후 2시, 2시 30분 셔틀이 출발합니다.' }
 ]
 
 const mapInfo = {
@@ -169,10 +280,45 @@ const mapInfo = {
   embedUrl: 'https://www.openstreetmap.org/export/embed.html?bbox=127.3035%2C37.6489%2C127.3197%2C37.6567&layer=mapnik&marker=37.6528%2C127.3116'
 }
 
+const directions = {
+  transit: [
+    { label: '지하철', body: '경춘선 평내호평역 2번 출구에서 도보 12분. 완만한 오르막길이라 여유 있게 이동해 주세요.' },
+    { label: '셔틀버스', body: '평내호평역 2번 출구 앞에서 오후 2시, 2시 30분 두 차례 운행합니다. 예식 후 복귀 셔틀은 오후 7시 출발입니다.' },
+    { label: '자가용', body: '내비게이션에 "그린하우스 가든" 또는 위 주소를 입력해 주세요. 정문 진입 후 안내 요원의 수신호를 따라 주시면 됩니다.' }
+  ],
+  parking: '정원 내 주차장 60대 규모, 2시간 무료입니다. 만차 시 도보 3분 거리의 가온로 공영주차장을 이용해 주세요.'
+}
+
 const accountInfo = [
   { side: '신랑측', holder: '정예준', bank: '하나은행', number: '448-910234-56707' },
   { side: '신부측', holder: '윤서윤', bank: '우리은행', number: '1002-348-567891' }
 ]
+
+const faqItems = [
+  { q: '복장에 규정이 있나요?', a: '잔디 위 이동이 있어 편한 신발을 권해 드립니다. 밝은 그린, 아이보리, 브라운 톤이 정원과 잘 어울립니다.' },
+  { q: '비가 오면 어떻게 되나요?', a: '우천 시 같은 정원 안 글라스하우스 실내 예식으로 전환됩니다. 당일 오전 9시 문자로 다시 안내드립니다.' },
+  { q: '식사는 어떻게 준비되나요?', a: '예식 후 가든 리셉션에서 스몰 플레이트와 음료가 제공되고, 오후 5시 30분부터 정원 디너 코스가 이어집니다.' },
+  { q: '아이와 함께 가도 되나요?', a: '물론입니다. 정원 한쪽에 아이들을 위한 놀이 공간과 유아용 의자를 마련해 두었습니다.' },
+  { q: '화환이나 화분을 보내도 되나요?', a: '정원 특성상 별도 화환은 정중히 사양합니다. 축하하는 마음만으로 충분히 감사합니다.' }
+]
+
+const openFaq = ref(-1)
+const toggleFaq = (index) => {
+  openFaq.value = openFaq.value === index ? -1 : index
+}
+
+const rsvpForm = ref({ side: '신랑측 하객', attendance: '참석', name: '', headcount: 1 })
+const sent = ref(false)
+
+const submitRsvp = () => {
+  if (!rsvpForm.value.name) return
+  sent.value = true
+}
+
+const resetRsvp = () => {
+  sent.value = false
+  rsvpForm.value = { side: '신랑측 하객', attendance: '참석', name: '', headcount: 1 }
+}
 
 const guestbookForm = ref({ name: '', message: '' })
 const guestbookEntries = ref([
@@ -189,6 +335,7 @@ const paginatedGuestbookEntries = computed(() => {
 })
 
 const copyStatus = ref('')
+const dDay = ref(null)
 
 const copyText = async (value, key) => {
   if (!import.meta.client || !navigator.clipboard) {
@@ -219,6 +366,24 @@ const submitGuestbook = () => {
 const changeGuestbookPage = (page) => {
   guestbookPage.value = Math.min(Math.max(page, 1), guestbookTotalPages.value)
 }
+
+onMounted(() => {
+  const target = new Date(weddingDate)
+  const now = new Date()
+  const startOfTarget = new Date(target.getFullYear(), target.getMonth(), target.getDate())
+  const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+  dDay.value = Math.round((startOfTarget - startOfToday) / (1000 * 60 * 60 * 24))
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in')
+        io.unobserve(entry.target)
+      }
+    })
+  }, { threshold: 0.15 })
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el))
+})
 
 useHead({ title: '가든 스토리 모바일 청첩장' })
 definePageMeta({ layout: false })
@@ -335,6 +500,20 @@ h2 {
   font-weight: 700;
 }
 
+.dday-hero {
+  position: relative;
+  z-index: 1;
+  margin: 1rem auto 0;
+  color: var(--leaf);
+  font-size: 0.98rem;
+}
+
+.dday-hero strong {
+  color: var(--peach);
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem;
+}
+
 .story-card,
 .section {
   margin: 1rem;
@@ -369,9 +548,57 @@ p {
   word-break: keep-all;
 }
 
+.greeting {
+  text-align: center;
+}
+
+.hosts {
+  margin-top: 1.2rem;
+  padding-top: 1.1rem;
+  border-top: 1px dashed rgba(108, 143, 69, 0.38);
+  text-align: center;
+}
+
+.hosts p {
+  margin: 0.2rem 0;
+  font-size: 0.98rem;
+}
+
+.hosts span {
+  color: var(--stem);
+}
+
+.hosts strong {
+  color: var(--leaf);
+}
+
 .section-head {
   margin-bottom: 1rem;
   text-align: center;
+}
+
+.dday-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  margin-bottom: 1.1rem;
+  padding: 1rem;
+  border-radius: 22px;
+  background: rgba(217, 239, 207, 0.55);
+}
+
+.dday-banner span {
+  color: var(--stem);
+  font-size: 0.85rem;
+}
+
+.dday-banner strong {
+  color: var(--leaf);
+  font-family: 'Fraunces', serif;
+  font-size: 2.4rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
 }
 
 .detail-grid,
@@ -420,6 +647,45 @@ h3 {
   font-size: 1.1rem;
 }
 
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.gallery figure {
+  margin: 0;
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+.gallery figure.g-0 {
+  grid-column: span 2;
+}
+
+.gallery img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  object-fit: cover;
+}
+
+.gallery figure.g-0 img {
+  min-height: 220px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
 .mood-row {
   display: flex;
   gap: 0.85rem;
@@ -454,6 +720,30 @@ h3 {
   margin-bottom: 1rem;
 }
 
+.directions {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1.1rem;
+}
+
+.directions article {
+  border: 1px solid rgba(108, 143, 69, 0.25);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.72);
+  padding: 0.9rem 1rem;
+}
+
+.directions strong {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--leaf);
+  font-size: 0.95rem;
+}
+
+.directions .parking {
+  background: rgba(217, 239, 207, 0.4);
+}
+
 .button-grid,
 .account-grid,
 .pagination {
@@ -483,6 +773,13 @@ button {
   color: var(--leaf);
 }
 
+.account-lead,
+.rsvp-lead {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
 .account-number {
   margin: 0.25rem 0 0.9rem;
 }
@@ -508,6 +805,109 @@ input:focus,
 textarea:focus {
   border-color: var(--stem);
   outline: none;
+}
+
+.chip-group {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.chip {
+  border: 1px solid rgba(108, 143, 69, 0.4);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--stem);
+  padding: 0.85rem 1rem;
+}
+
+.chip.active {
+  background: var(--leaf);
+  border-color: var(--leaf);
+  color: #fff;
+}
+
+.count-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 0.4rem 0.2rem;
+}
+
+.count-row label {
+  color: var(--leaf);
+  font-size: 0.95rem;
+}
+
+.count-row input {
+  width: 92px;
+  text-align: center;
+  padding: 0.75rem;
+}
+
+.rsvp-submit {
+  margin-top: 0.3rem;
+}
+
+.rsvp-sent {
+  text-align: center;
+  padding: 0.5rem 0 0.2rem;
+}
+
+.rsvp-sent .sent-mark {
+  font-size: 2.2rem;
+}
+
+.rsvp-sent h3 {
+  margin: 0.4rem 0 0.6rem;
+  font-size: 1.35rem;
+}
+
+.rsvp-sent button {
+  width: fit-content;
+  margin: 1rem auto 0;
+  padding: 0.8rem 1.6rem;
+  background: var(--mint);
+  color: var(--leaf);
+}
+
+.faq-list {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.faq-list article {
+  border: 1px solid rgba(108, 143, 69, 0.25);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.72);
+  overflow: hidden;
+}
+
+.faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  width: 100%;
+  border-radius: 0;
+  background: transparent;
+  color: var(--leaf);
+  text-align: left;
+  padding: 1rem 1.1rem;
+  font-size: 0.98rem;
+}
+
+.faq-q em {
+  color: var(--stem);
+  font-style: normal;
+  font-family: 'Fraunces', serif;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.faq-a {
+  padding: 0 1.1rem 1.05rem;
+  font-size: 0.94rem;
 }
 
 .guestbook-list {
@@ -536,6 +936,34 @@ textarea:focus {
 
 .pagination button:disabled {
   opacity: 0.45;
+}
+
+.garden-footer {
+  padding: 2.4rem 1.2rem 3rem;
+  text-align: center;
+}
+
+.garden-footer .footer-mark {
+  font-size: 1.6rem;
+}
+
+.garden-footer .footer-names {
+  margin-top: 0.4rem;
+  color: var(--leaf);
+  font-family: 'Fraunces', serif;
+  font-size: 1.8rem;
+  letter-spacing: -0.04em;
+}
+
+.garden-footer .footer-date {
+  margin-top: 0.3rem;
+  color: var(--stem);
+  font-size: 0.9rem;
+}
+
+.garden-footer .footer-thanks {
+  margin-top: 0.9rem;
+  font-size: 0.9rem;
 }
 
 @media (max-width: 430px) {
