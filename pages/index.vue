@@ -24,7 +24,7 @@
           <div class="portfolio-card">
             <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80" alt="Editorial Wedding" class="card-image">
             <div class="card-content">
-              <div class="tags"><span class="tag">Wedding</span><span class="tag">New</span><span class="tag">Editorial</span></div>
+              <div class="tags"><span class="tag">Wedding</span><span class="tag">New</span><span class="tag">Editorial</span><span class="tag">스타일리쉬</span></div>
               <h3 class="card-title">에디토리얼 웨딩 청첩장</h3>
               <p class="card-desc">화보형 사진 구성과 큰 여백 중심으로 만든 최신 무드 청첩장 데모입니다.</p>
               <a href="/demos/editorial-wedding" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
@@ -34,9 +34,9 @@
           <div class="portfolio-card">
             <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=80" alt="Signature Wedding" class="card-image">
             <div class="card-content">
-              <div class="tags"><span class="tag">Wedding</span><span class="tag">New</span><span class="tag">Hotel</span></div>
+              <div class="tags"><span class="tag">Wedding</span><span class="tag">New</span><span class="tag">Hotel</span><span class="tag">중간</span></div>
               <h3 class="card-title">시그니처 호텔 웨딩 청첩장</h3>
-              <p class="card-desc">저녁 예식과 호텔 브로슈어 톤을 섞은 정돈된 스타일의 청첩장 데모입니다.</p>
+              <p class="card-desc">저녁 예식과 호텔 브로슈어 톤을 섞어, 실제 호텔 웨딩 페이지처럼 순서와 안내까지 꼼꼼히 채운 정돈된 청첩장 데모입니다.</p>
               <a href="/demos/signature-wedding" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
             </div>
           </div>
@@ -44,9 +44,9 @@
           <div class="portfolio-card">
             <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=900&q=80" alt="Archive Wedding" class="card-image">
             <div class="card-content">
-              <div class="tags"><span class="tag">Wedding</span><span class="tag">New</span><span class="tag">Film</span></div>
+              <div class="tags"><span class="tag">Wedding</span><span class="tag">New</span><span class="tag">Film</span><span class="tag">스타일리쉬</span></div>
               <h3 class="card-title">아카이브 필름 웨딩 청첩장</h3>
-              <p class="card-desc">필름 스냅과 종이 질감 무드를 앞세운 감도 높은 청첩장 데모입니다.</p>
+              <p class="card-desc">필름 스냅과 종이 질감 무드를 앞세워, 실제 청첩장처럼 안내 정보까지 빠짐없이 채운 감도 높은 데모입니다.</p>
               <a href="/demos/archive-wedding" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
             </div>
           </div>
@@ -61,7 +61,7 @@
           <div class="portfolio-card">
             <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80" alt="Classic Wedding" class="card-image">
             <div class="card-content">
-              <div class="tags"><span class="tag">Wedding</span><span class="tag">Classic</span></div>
+              <div class="tags"><span class="tag">Wedding</span><span class="tag">Classic</span><span class="tag">대중형</span></div>
               <h3 class="card-title">클래식 웨딩 청첩장</h3>
               <p class="card-desc">우아한 세리프 폰트와 크림색 여백의 미를 살린 가장 정통적이고 고급스러운 웨딩 초대장입니다.</p>
               <a href="/demos/classic-wedding" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
@@ -72,7 +72,7 @@
           <div class="portfolio-card">
             <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=600&q=80" alt="Modern Wedding" class="card-image">
             <div class="card-content">
-              <div class="tags"><span class="tag">Wedding</span><span class="tag">Modern</span></div>
+              <div class="tags"><span class="tag">Wedding</span><span class="tag">Modern</span><span class="tag">스타일리쉬</span></div>
               <h3 class="card-title">모던 미니멀 청첩장</h3>
               <p class="card-desc">흑백의 강렬한 대비와 과감한 타이포그래피를 활용한 도시적인 느낌의 웨딩 초대장입니다.</p>
               <a href="/demos/modern-wedding" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
@@ -83,7 +83,7 @@
           <div class="portfolio-card">
             <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=600&q=80" alt="Botanical Wedding" class="card-image">
             <div class="card-content">
-              <div class="tags"><span class="tag">Wedding</span><span class="tag">Nature</span></div>
+              <div class="tags"><span class="tag">Wedding</span><span class="tag">Nature</span><span class="tag">대중형</span></div>
               <h3 class="card-title">가든 보태니컬 청첩장</h3>
               <p class="card-desc">그린 톤의 식물 패턴과 따뜻한 색감을 사용하여 싱그러운 야외 웨딩에 완벽하게 어울립니다.</p>
               <a href="/demos/botanical-wedding" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
@@ -94,7 +94,7 @@
           <div class="portfolio-card">
             <img src="https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=600&q=80" alt="VIP Party" class="card-image">
             <div class="card-content">
-              <div class="tags"><span class="tag">Party</span><span class="tag">Luxury</span></div>
+              <div class="tags"><span class="tag">Party</span><span class="tag">Luxury</span><span class="tag">스타일리쉬</span></div>
               <h3 class="card-title">하이엔드 VIP 초청장</h3>
               <p class="card-desc">골드 포인트와 딥 블랙 테마를 사용하여 럭셔리 브랜드 행사에 걸맞은 VIP 전용 모바일 초청장입니다.</p>
               <a href="/demos/vip-party" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
@@ -105,7 +105,7 @@
           <div class="portfolio-card">
             <img src="https://images.unsplash.com/photo-1530103862676-de8892795816?w=600&q=80" alt="Kids Birthday" class="card-image">
             <div class="card-content">
-              <div class="tags"><span class="tag">Birthday</span><span class="tag">Kids</span></div>
+              <div class="tags"><span class="tag">Birthday</span><span class="tag">Kids</span><span class="tag">중간</span></div>
               <h3 class="card-title">키즈 생일파티 초대장</h3>
               <p class="card-desc">비비드한 파스텔 컬러 블록과 직선적인 팝아트 요소를 결합한 감각적인 돌잔치/생일 초대장입니다.</p>
               <a href="/demos/kids-birthday" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
@@ -116,7 +116,7 @@
           <div class="portfolio-card">
             <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80" alt="Corporate Seminar" class="card-image">
             <div class="card-content">
-              <div class="tags"><span class="tag">Corporate</span><span class="tag">B2B</span></div>
+              <div class="tags"><span class="tag">Corporate</span><span class="tag">B2B</span><span class="tag">중간</span></div>
               <h3 class="card-title">기업 컨퍼런스 초청장</h3>
               <p class="card-desc">신뢰감을 주는 네이비 블루와 그리드 시스템을 기반으로 한 프로페셔널한 비즈니스 세미나 초청장입니다.</p>
               <a href="/demos/corporate-event" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
@@ -127,7 +127,7 @@
           <div class="portfolio-card">
             <img src="https://images.unsplash.com/photo-1536924940846-227afb31e2a5?w=600&q=80" alt="Art Exhibition" class="card-image">
             <div class="card-content">
-              <div class="tags"><span class="tag">Art</span><span class="tag">Exhibition</span></div>
+              <div class="tags"><span class="tag">Art</span><span class="tag">Exhibition</span><span class="tag">스타일리쉬</span></div>
               <h3 class="card-title">갤러리 전시회 오프닝</h3>
               <p class="card-desc">아방가르드한 비대칭 레이아웃과 감각적인 타이포그래피가 돋보이는 예술 전시회 오프닝 초대장입니다.</p>
               <a href="/demos/exhibition" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
@@ -144,9 +144,9 @@
           <div class="portfolio-card">
             <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=600&q=80" alt="Law Firm" class="card-image">
             <div class="card-content">
-              <div class="tags"><span class="tag">Corporate</span><span class="tag">Law</span></div>
+              <div class="tags"><span class="tag">Corporate</span><span class="tag">Law</span><span class="tag">대중형</span></div>
               <h3 class="card-title">대형 법률사무소 웹사이트</h3>
-              <p class="card-desc">무게감 있는 타이포그래피와 신뢰를 주는 레이아웃으로 구성된 대형 로펌 특화 기업 소개 페이지입니다.</p>
+              <p class="card-desc">무게감 있는 타이포그래피와 신뢰를 주는 레이아웃으로, 실제 대형 로펌 홈페이지처럼 조직·성공사례까지 갖춘 기업 소개 페이지입니다.</p>
               <a href="/demos/law-firm" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
             </div>
           </div>
@@ -155,7 +155,7 @@
           <div class="portfolio-card">
             <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80" alt="Hospital" class="card-image">
             <div class="card-content">
-              <div class="tags"><span class="tag">Medical</span><span class="tag">Premium</span></div>
+              <div class="tags"><span class="tag">Medical</span><span class="tag">Premium</span><span class="tag">스타일리쉬</span></div>
               <h3 class="card-title">프리미엄 성형외과/피부과</h3>
               <p class="card-desc">의료진의 전문성과 시설의 고급스러움을 강조하는 뷰티 클리닉 맞춤형 하이엔드 웹사이트입니다.</p>
               <a href="/demos/hospital" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
@@ -166,9 +166,9 @@
           <div class="portfolio-card">
             <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" alt="Architecture" class="card-image">
             <div class="card-content">
-              <div class="tags"><span class="tag">Agency</span><span class="tag">Architecture</span></div>
+              <div class="tags"><span class="tag">Agency</span><span class="tag">Architecture</span><span class="tag">스타일리쉬</span></div>
               <h3 class="card-title">건축/인테리어 스튜디오</h3>
-              <p class="card-desc">이미지 중심의 포트폴리오 쇼케이스에 특화된 건축 사무소 및 인테리어 스튜디오 소개 페이지입니다.</p>
+              <p class="card-desc">이미지 중심의 포트폴리오 쇼케이스와 함께, 실제 스튜디오 홈페이지처럼 프로젝트·연혁 정보까지 갖춘 소개 페이지입니다.</p>
               <a href="/demos/architecture" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
             </div>
           </div>
@@ -176,9 +176,9 @@
           <div class="portfolio-card">
             <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&q=80" alt="Corporate Company" class="card-image">
             <div class="card-content">
-              <div class="tags"><span class="tag">Corporate</span><span class="tag">Standard</span></div>
+              <div class="tags"><span class="tag">Corporate</span><span class="tag">Standard</span><span class="tag">대중형</span></div>
               <h3 class="card-title">일반 기업 홈페이지</h3>
-              <p class="card-desc">회사 소개, 주요 사업, 실적과 문의 전환을 균형 있게 담은 표준형 기업 웹사이트입니다.</p>
+              <p class="card-desc">회사 소개, 주요 사업, 실적과 문의 전환까지 실제 기업 홈페이지처럼 균형 있게 갖춘 표준형 웹사이트입니다.</p>
               <a href="/demos/corporate-company" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
             </div>
           </div>
@@ -186,9 +186,9 @@
           <div class="portfolio-card">
             <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80" alt="Medical Center" class="card-image">
             <div class="card-content">
-              <div class="tags"><span class="tag">Medical</span><span class="tag">Hospital</span></div>
+              <div class="tags"><span class="tag">Medical</span><span class="tag">Hospital</span><span class="tag">대중형</span></div>
               <h3 class="card-title">지역 종합병원 홈페이지</h3>
-              <p class="card-desc">진료과, 의료진, 예약과 오시는 길을 빠르게 찾을 수 있는 병원 표준 홈페이지입니다.</p>
+              <p class="card-desc">진료과, 의료진, 예약과 오시는 길까지 실제 병원 홈페이지처럼 빠짐없이 갖춘 표준형 홈페이지입니다.</p>
               <a href="/demos/medical-center" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
             </div>
           </div>
@@ -196,9 +196,9 @@
           <div class="portfolio-card">
             <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=80" alt="Dental Clinic" class="card-image">
             <div class="card-content">
-              <div class="tags"><span class="tag">Medical</span><span class="tag">Dental</span></div>
+              <div class="tags"><span class="tag">Medical</span><span class="tag">Dental</span><span class="tag">대중형</span></div>
               <h3 class="card-title">동네 치과 홈페이지</h3>
-              <p class="card-desc">진료 안내와 의료진 신뢰, 간편 상담 예약을 중심으로 구성한 치과 홈페이지입니다.</p>
+              <p class="card-desc">진료 안내와 의료진 신뢰, 간편 상담 예약까지 실제 치과 홈페이지처럼 갖춘 데모입니다.</p>
               <a href="/demos/dental-clinic" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
             </div>
           </div>
@@ -213,7 +213,7 @@
           <div class="portfolio-card">
             <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="Landing Page" class="card-image">
             <div class="card-content">
-              <div class="tags"><span class="tag">B2B</span><span class="tag">SaaS</span></div>
+              <div class="tags"><span class="tag">B2B</span><span class="tag">SaaS</span><span class="tag">대중형</span></div>
               <h3 class="card-title">B2B 리드 제너레이션 랜딩</h3>
               <p class="card-desc">복잡한 요소를 배제하고 사용자 행동을 유도하는 흑백 톤의 랜딩 페이지입니다. 기업의 신뢰도를 극대화합니다.</p>
               <a href="/demos/b2b-landing" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
@@ -224,7 +224,7 @@
           <div class="portfolio-card">
             <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&q=80" alt="Bio Link" class="card-image">
             <div class="card-content">
-              <div class="tags"><span class="tag">Mobile</span><span class="tag">SNS</span></div>
+              <div class="tags"><span class="tag">Mobile</span><span class="tag">SNS</span><span class="tag">스타일리쉬</span></div>
               <h3 class="card-title">인스타 프로필 멀티 링크</h3>
               <p class="card-desc">글래스모피즘 디자인이 적용된 깔끔한 멀티 링크 페이지입니다. 브랜드의 본질을 직관적으로 전달합니다.</p>
               <a href="/demos/bio-link" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
@@ -235,7 +235,7 @@
           <div class="portfolio-card">
             <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80" alt="Ecommerce" class="card-image">
             <div class="card-content">
-              <div class="tags"><span class="tag">Commerce</span><span class="tag">Shop</span></div>
+              <div class="tags"><span class="tag">Commerce</span><span class="tag">Shop</span><span class="tag">중간</span></div>
               <h3 class="card-title">라이프스타일 브랜드 쇼핑몰</h3>
               <p class="card-desc">구매 전환율을 최적화한 미니멀 디자인 기반의 프론트엔드 쇼핑몰 템플릿입니다.</p>
               <a href="/demos/ecommerce" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
