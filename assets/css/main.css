@@ -25,7 +25,7 @@ body {
 }
 
 /* Header */
-.header {
+.home .header {
   padding: 1.5rem 5%;
   display: flex;
   justify-content: space-between;
@@ -34,7 +34,7 @@ body {
   background-color: var(--surface-color);
 }
 
-.logo {
+.home .logo {
   font-size: 1.8rem;
   font-weight: 800;
   letter-spacing: 2px;
@@ -43,12 +43,12 @@ body {
   text-transform: uppercase;
 }
 
-.logo span {
+.home .logo span {
   font-style: italic;
   font-weight: 400;
 }
 
-.contact-btn {
+.home .contact-btn {
   display: inline-block;
   background-color: transparent;
   color: var(--text-main);
@@ -63,13 +63,13 @@ body {
   transition: all 0.2s ease;
 }
 
-.contact-btn:hover {
+.home .contact-btn:hover {
   background-color: var(--primary-color);
   color: var(--surface-color);
 }
 
 /* Hero Section */
-.hero {
+.home .hero {
   padding: 6rem 5% 5rem;
   border-bottom: 2px solid var(--border-color);
   background-color: var(--bg-color);
@@ -78,7 +78,7 @@ body {
   align-items: flex-start;
 }
 
-.hero h1 {
+.home .hero h1 {
   font-size: 5rem;
   font-weight: 800;
   line-height: 1.1;
@@ -90,7 +90,7 @@ body {
   padding-bottom: 2rem;
 }
 
-.hero p {
+.home .hero p {
   font-size: 1.25rem;
   color: var(--text-muted);
   margin-bottom: 3rem;
@@ -99,15 +99,15 @@ body {
 }
 
 /* Portfolio Section */
-.portfolio-container {
+.home .portfolio-container {
   padding: 0;
 }
 
-.portfolio-category {
+.home .portfolio-category {
   border-bottom: 4px solid var(--border-color);
 }
 
-.section-title {
+.home .section-title {
   font-size: 2.5rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -121,7 +121,7 @@ body {
   gap: 1.5rem;
 }
 
-.section-title .sub {
+.home .section-title .sub {
   font-size: 1.1rem;
   font-weight: 500;
   color: var(--text-muted);
@@ -129,14 +129,14 @@ body {
   letter-spacing: normal;
 }
 
-.portfolio-grid {
+.home .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 0;
   border-bottom: 2px solid var(--border-color);
 }
 
-.portfolio-card {
+.home .portfolio-card {
   background-color: var(--surface-color);
   border-right: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
@@ -147,32 +147,32 @@ body {
   flex-direction: column;
 }
 
-.portfolio-card:hover {
+.home .portfolio-card:hover {
   background-color: #f1f1f1;
 }
 
-.card-image {
+.home .card-image {
   width: 100%;
   height: 280px;
   object-fit: cover;
   border-bottom: 1px solid var(--border-color);
 }
 
-.card-content {
+.home .card-content {
   padding: 2rem;
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-.tags {
+.home .tags {
   display: flex;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
   flex-wrap: wrap;
 }
 
-.tag {
+.home .tag {
   background-color: transparent;
   color: var(--text-main);
   padding: 0.2rem 0.6rem;
@@ -184,7 +184,7 @@ body {
   border: 1px solid var(--border-color);
 }
 
-.card-title {
+.home .card-title {
   font-size: 1.6rem;
   margin-bottom: 1rem;
   font-weight: 800;
@@ -193,7 +193,7 @@ body {
   letter-spacing: -0.5px;
 }
 
-.card-desc {
+.home .card-desc {
   color: var(--text-muted);
   font-size: 1rem;
   margin-bottom: 2.5rem;
@@ -201,7 +201,7 @@ body {
   line-height: 1.7;
 }
 
-.demo-link {
+.home .demo-link {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
@@ -221,7 +221,7 @@ body {
   transition: all 0.2s;
 }
 
-.demo-link:hover {
+.home .demo-link:hover {
   background-color: var(--text-main);
   color: var(--surface-color);
   padding-left: 1rem;
@@ -229,18 +229,18 @@ body {
 }
 
 /* Info / Policy Section */
-.info-section {
+.home .info-section {
   background-color: var(--surface-color);
   border-bottom: 4px solid var(--border-color);
 }
 
-.info-grid {
+.home .info-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   border-bottom: 2px solid var(--border-color);
 }
 
-.info-card {
+.home .info-card {
   padding: 3rem 2rem;
   border-right: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
@@ -248,16 +248,16 @@ body {
   transition: all 0.3s ease;
 }
 
-.info-card:hover {
+.home .info-card:hover {
   background-color: var(--primary-color);
   color: var(--surface-color);
 }
 
-.info-card:hover p, .info-card:hover .info-header {
+.home .info-card:hover p, .home .info-card:hover .info-header {
   color: var(--surface-color);
 }
 
-.info-header {
+.home .info-header {
   font-size: 3rem;
   font-weight: 800;
   color: #ccc;
@@ -266,7 +266,7 @@ body {
   line-height: 1;
 }
 
-.info-card h3 {
+.home .info-card h3 {
   font-size: 1.4rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
@@ -274,66 +274,66 @@ body {
   line-height: 1.4;
 }
 
-.info-card p {
+.home .info-card p {
   color: var(--text-muted);
   font-size: 1.05rem;
   line-height: 1.7;
 }
 
-.info-card p strong {
+.home .info-card p strong {
   font-weight: 800;
   text-decoration: underline;
 }
 
 /* Guide Section */
-.guide-section {
+.home .guide-section {
   background-color: #f4f4f4;
   border-bottom: 4px solid var(--border-color);
 }
 
-.guide-content {
+.home .guide-content {
   display: flex;
   flex-direction: column;
 }
 
-.analogy-box {
+.home .analogy-box {
   display: flex;
   border-bottom: 2px solid var(--border-color);
   padding: 4rem 5%;
 }
 
-.analogy-text {
+.home .analogy-text {
   max-width: 900px;
   margin: 0 auto;
 }
 
-.analogy-text h3 {
+.home .analogy-text h3 {
   font-size: 1.8rem;
   font-weight: 800;
   margin-bottom: 2rem;
   color: var(--primary-color);
 }
 
-.analogy-text p {
+.home .analogy-text p {
   font-size: 1.15rem;
   line-height: 1.8;
   margin-bottom: 1.5rem;
   color: var(--text-muted);
 }
 
-.analogy-text p strong {
+.home .analogy-text p strong {
   color: var(--primary-color);
   background: linear-gradient(180deg, transparent 60%, #e2e2e2 0);
 }
 
-.alert-box {
+.home .alert-box {
   margin-top: 3rem;
   padding: 2rem;
   border: 2px dashed var(--border-color);
   background-color: var(--surface-color);
 }
 
-.alert-box p {
+.home .alert-box p {
   margin-bottom: 0;
   font-size: 1.05rem;
   font-weight: 600;
@@ -341,7 +341,7 @@ body {
 }
 
 /* Philosophy Banner */
-.philosophy-banner {
+.home .philosophy-banner {
   background-color: var(--primary-color);
   color: var(--surface-color);
   padding: 6rem 5%;
@@ -349,12 +349,12 @@ body {
   border-bottom: 2px solid var(--border-color);
 }
 
-.ph-content {
+.home .ph-content {
   max-width: 900px;
   margin: 0 auto;
 }
 
-.philosophy-banner h2 {
+.home .philosophy-banner h2 {
   font-size: 2.8rem;
   font-weight: 800;
   line-height: 1.3;
@@ -362,14 +362,14 @@ body {
   word-break: keep-all;
 }
 
-.ph-line {
+.home .ph-line {
   width: 2px;
   height: 60px;
   background-color: var(--surface-color);
   margin: 0 auto 3rem;
 }
 
-.philosophy-banner p {
+.home .philosophy-banner p {
   font-size: 1.2rem;
   line-height: 1.8;
   margin-bottom: 1.5rem;
@@ -377,14 +377,14 @@ body {
   word-break: keep-all;
 }
 
-.philosophy-banner p strong {
+.home .philosophy-banner p strong {
   color: var(--surface-color);
   font-weight: 800;
   text-decoration: underline;
 }
 
 /* Footer */
-footer {
+.home footer {
   text-align: center;
   padding: 4rem 2rem;
   background-color: var(--bg-color);

@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="home">
     <!-- Header -->
     <header class="header">
       <NuxtLink to="/" class="logo">Port<span>folio</span></NuxtLink>
       <div>
-        <a href="mailto:your@email.com" class="contact-btn">Contact</a>
+        <a href="mailto:micael17@naver.com" class="contact-btn">Contact</a>
       </div>
     </header>
 
@@ -314,13 +314,13 @@
 
     <!-- Footer -->
     <footer>
-      <p>&copy; 2026 Web Portfolio. Built with Nuxt 3.</p>
+      <p>&copy; 2026 Minif Web Portfolio.</p>
     </footer>
   </div>
 </template>
 
 <script setup>
 useHead({
-  title: 'Portfolio Showcase'
+  title: 'Minif Portfolio Showcase'
 })
 </script>
