@@ -534,8 +534,86 @@
     }
 
     /* Process */
+    .process-principle {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      margin-top: 58px;
+      color: var(--white);
+      background: var(--black);
+      border: 1px solid var(--line-dark);
+    }
+
+    .process-principle-label {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 270px;
+      padding: 28px;
+      border-right: 1px solid var(--line-dark);
+    }
+
+    .process-principle-label strong {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+    }
+
+    .process-principle-label span {
+      color: var(--muted-dark);
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .process-principle-body {
+      padding: 32px 36px;
+    }
+
+    .process-principle-body h3 {
+      max-width: 720px;
+      margin: 0;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.15;
+      letter-spacing: -0.055em;
+    }
+
+    .process-principle-body > p {
+      max-width: 680px;
+      margin: 22px 0 34px;
+      color: var(--muted-dark);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .end-picture-flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line-dark);
+      border-bottom: 1px solid var(--line-dark);
+    }
+
+    .end-picture-flow div {
+      position: relative;
+      padding: 18px 14px 18px 0;
+    }
+
+    .end-picture-flow div + div {
+      padding-left: 18px;
+      border-left: 1px solid var(--line-dark);
+    }
+
+    .end-picture-flow span {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--muted-dark);
+      font-size: 10px;
+    }
+
+    .end-picture-flow strong {
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
     .process-list {
-      margin-top: 64px;
+      margin-top: 38px;
       border-top: 1px solid var(--line-light);
     }
 
@@ -885,6 +963,39 @@
         margin-top: 8px;
       }
 
+      .process-principle {
+        grid-template-columns: 1fr;
+      }
+
+      .process-principle-label {
+        min-height: auto;
+        gap: 36px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line-dark);
+      }
+
+      .process-principle-body {
+        padding: 28px 22px;
+      }
+
+      .process-principle-body h3 {
+        font-size: 32px;
+      }
+
+      .end-picture-flow {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .end-picture-flow div:nth-child(3) {
+        padding-left: 0;
+        border-top: 1px solid var(--line-dark);
+        border-left: 0;
+      }
+
+      .end-picture-flow div:nth-child(4) {
+        border-top: 1px solid var(--line-dark);
+      }
+
       .hosting-grid {
         grid-template-columns: 1fr 1fr;
       }
@@ -1117,34 +1228,51 @@
 
     <section class="section section-light">
       <p class="section-kicker mono">04 / PROCESS</p>
-      <h2 class="section-title">복잡한 과정은 줄이고,<br>필요한 결정만 함께합니다.</h2>
-      <p class="section-copy">각 단계마다 무엇을 확인하면 되는지 먼저 안내합니다. 고객님은 어려운 기술 대신 서비스의 내용과 방향에만 의견을 주시면 됩니다.</p>
+      <h2 class="section-title">완성될 모습을 먼저 보고,<br>필요한 기능을 채워갑니다.</h2>
+      <p class="section-copy">기능 목록과 전문 용어로 시작하지 않습니다. 사용자가 실제로 마주할 최종 화면, 즉 엔드픽처를 먼저 목업(Mockup, 완성 모습을 미리 확인하는 디자인 시안)으로 제시하고 눈에 보이는 결과를 기준으로 기획과 개발을 이어갑니다.</p>
+
+      <div class="process-principle">
+        <div class="process-principle-label mono">
+          <strong>END-PICTURE<br>FIRST</strong>
+          <span>사용자의 입장에서<br>완성 장면부터 설계합니다.</span>
+        </div>
+        <div class="process-principle-body">
+          <h3>“무엇을 개발할까요?”보다<br>“사용자에게 어떻게 보일까요?”를 먼저 묻습니다.</h3>
+          <p>상담 내용을 바탕으로 실제 서비스에 가까운 목업(Mockup)을 먼저 보여드립니다. 고객님은 추상적인 기능 설명 대신 완성될 모습을 보고 방향을 결정하고, 합의된 화면을 기준으로 필요한 기능과 관리자 도구를 구체화합니다.</p>
+          <div class="end-picture-flow">
+            <div><span class="mono">01</span><strong>서비스와 사용자<br>이해하기</strong></div>
+            <div><span class="mono">02 / MOCKUP</span><strong>엔드픽처<br>디자인 시안 제시</strong></div>
+            <div><span class="mono">03</span><strong>화면 기준<br>기능 구체화</strong></div>
+            <div><span class="mono">04</span><strong>개발 · 검수 ·<br>운영 연결</strong></div>
+          </div>
+        </div>
+      </div>
 
       <div class="process-list">
         <article class="process-item">
           <span class="num mono">01</span>
-          <h3>편하게 상담하기</h3>
-          <p>서비스, 고객, 원하는 분위기를 듣습니다. 준비된 자료가 없어도 대화로 시작할 수 있습니다.</p>
+          <h3>사용자 관점 듣기</h3>
+          <p>서비스를 누가, 어떤 상황에서 사용하는지부터 듣습니다. 정리된 기획서가 없어도 원하는 경험과 분위기에 관한 대화로 시작할 수 있습니다.</p>
         </article>
         <article class="process-item">
           <span class="num mono">02</span>
-          <h3>구성과 방향 정하기</h3>
-          <p>필요한 화면과 기능을 정리하고, 이해하기 쉬운 범위와 견적으로 안내합니다.</p>
+          <h3>완성 화면을 미리 보기</h3>
+          <p>상담 내용을 실제 웹사이트에 가까운 목업(Mockup)으로 제시합니다. 글로만 설명된 기획이 아니라 고객님이 보게 될 엔드픽처를 함께 확인합니다.</p>
         </article>
         <article class="process-item">
           <span class="num mono">03</span>
-          <h3>디자인 · 개발</h3>
-          <p>확정한 방향을 실제 화면으로 제작합니다. 중간 결과를 공유하며 필요한 부분을 조율합니다.</p>
+          <h3>기능과 운영 채우기</h3>
+          <p>확정된 화면을 기준으로 문의, 결제, 예약, 상품 관리 등 실제 필요한 기능과 운영 방식을 구체화합니다. 기능이 화면의 목적을 벗어나지 않도록 설계합니다.</p>
         </article>
         <article class="process-item">
           <span class="num mono">04</span>
-          <h3>검수 · 라이브 배포</h3>
-          <p>모바일과 PC 환경을 확인한 뒤 사이트를 공개하고, 도메인과 호스팅 설정을 마무리합니다.</p>
+          <h3>개발하며 함께 검수하기</h3>
+          <p>목업을 실제 작동하는 서비스로 구현하고 중간 결과를 공유합니다. 화면과 기능이 처음 합의한 엔드픽처에 맞는지 함께 확인합니다.</p>
         </article>
         <article class="process-item">
           <span class="num mono">05</span>
-          <h3>한 달간 함께 운영</h3>
-          <p>배포 후 1개월 동안 호스팅과 유지보수를 무료로 지원하며 사이트를 안정적으로 정착시킵니다.</p>
+          <h3>배포 후 운영까지 연결</h3>
+          <p>모바일과 PC 환경을 검수한 뒤 사이트를 공개합니다. 배포 후 1개월 동안 호스팅과 유지보수를 무료로 지원하며 안정적인 운영을 돕습니다.</p>
         </article>
       </div>
     </section>
