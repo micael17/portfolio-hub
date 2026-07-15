@@ -24,6 +24,17 @@ body {
   margin: 0 auto;
 }
 
+/* Demo pages use full-bleed wrappers. Keep the portfolio index isolated from
+   page-level presentation styles that may remain during client navigation. */
+.home {
+  width: 100%;
+  max-width: 1400px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+}
+
 /* Header */
 .home .header {
   padding: 1.5rem 5%;

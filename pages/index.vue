@@ -241,6 +241,36 @@
               <a href="/demos/ecommerce" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
             </div>
           </div>
+
+          <div class="portfolio-card">
+            <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=900&q=80" alt="AUBE Botanical Beauty" class="card-image">
+            <div class="card-content">
+              <div class="tags"><span class="tag">Commerce</span><span class="tag">Beauty</span><span class="tag">Premium</span></div>
+              <h3 class="card-title">보태니컬 뷰티 브랜드 숍</h3>
+              <p class="card-desc">절제된 에디토리얼 레이아웃과 차분한 컬러로 브랜드 철학과 제품 리추얼을 함께 보여주는 프리미엄 뷰티 커머스입니다.</p>
+              <a href="/demos/aube-beauty" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
+            </div>
+          </div>
+
+          <div class="portfolio-card">
+            <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80" alt="VICE VERSE Streetwear" class="card-image">
+            <div class="card-content">
+              <div class="tags"><span class="tag">Commerce</span><span class="tag">Fashion</span><span class="tag">Bold</span></div>
+              <h3 class="card-title">스트리트웨어 드롭 스토어</h3>
+              <p class="card-desc">형광 포인트와 거친 타이포그래피, 룩북 중심의 구성으로 한정판 드롭의 긴장감을 살린 패션 커머스입니다.</p>
+              <a href="/demos/vice-street" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
+            </div>
+          </div>
+
+          <div class="portfolio-card">
+            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80" alt="Morrow Grocery Market" class="card-image">
+            <div class="card-content">
+              <div class="tags"><span class="tag">Commerce</span><span class="tag">Grocery</span><span class="tag">Editorial</span></div>
+              <h3 class="card-title">프리미엄 그로서리 마켓</h3>
+              <p class="card-desc">생산자와 제철 이야기를 따뜻한 편집 디자인에 담아 상품 판매와 브랜드 콘텐츠를 자연스럽게 연결한 식품 커머스입니다.</p>
+              <a href="/demos/morrow-market" target="_blank" class="demo-link">Live Demo <i class="fa-solid fa-external-link-alt"></i></a>
+            </div>
+          </div>
         </div>
       </section>
 

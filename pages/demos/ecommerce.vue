@@ -1,5 +1,6 @@
 <template>
   <div class="ecommerce">
+    <CommerceAdminAdminDemoLink to="/demos/commerce-admin/essentials" />
     <header class="navbar">
       <div class="nav-left">
         <a href="#products">Shop</a>
@@ -190,6 +191,7 @@
 
     <footer>
       <p>ESSENTIALS. &copy; 2026</p>
+      <NuxtLink to="/demos/commerce-admin/essentials" class="admin-preview">Admin Preview →</NuxtLink>
     </footer>
   </div>
 </template>
@@ -993,6 +995,15 @@ footer {
   border-top: 1px solid #000;
   font-weight: 800;
   font-size: 1.2rem;
+}
+
+.admin-preview {
+  color: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 @media (max-width: 1024px) {
