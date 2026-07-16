@@ -103,7 +103,7 @@
 
           <!-- 6. Kids Birthday -->
           <div class="portfolio-card">
-            <img src="https://images.unsplash.com/photo-1530103862676-de8892795816?w=600&q=80" alt="Kids Birthday" class="card-image">
+            <img src="/images/kids-birthday-ai/leo-hero.webp" alt="Kids Birthday" class="card-image">
             <div class="card-content">
               <div class="tags"><span class="tag">Birthday</span><span class="tag">Kids</span><span class="tag">중간</span></div>
               <h3 class="card-title">키즈 생일파티 초대장</h3>
@@ -280,23 +280,16 @@
     <section id="policy" class="info-section">
       <h2 class="section-title">Workflow & Policy <span class="sub">작업 방식 및 원칙</span></h2>
       <div class="info-grid">
-        <!-- 1. Exclusivity -->
+        <!-- 1. Responsive -->
         <div class="info-card">
           <div class="info-header">01</div>
-          <h3>압도적 퀄리티를 위한 수량 제한</h3>
-          <p>고품질의 결과물을 유지하기 위해 <strong>한 달에 단 3건</strong>의 프로젝트만 진행합니다. 공장형 에이전시와 달리 하나의 프로젝트에 완벽히 몰입합니다.</p>
-        </div>
-
-        <!-- 2. Responsive -->
-        <div class="info-card">
-          <div class="info-header">02</div>
           <h3>프리미엄 반응형 설계</h3>
           <p>기본 작업은 데스크톱 또는 모바일 중 하나의 주요 타겟 플랫폼에 맞춰 진행됩니다. 모든 디바이스를 지원하는 <strong>풀 반응형(Full-Responsive) 최적화는 프리미엄 고급 의뢰</strong>로만 진행됩니다.</p>
         </div>
 
-        <!-- 3. Process -->
+        <!-- 2. Process -->
         <div class="info-card">
-          <div class="info-header">03</div>
+          <div class="info-header">02</div>
           <h3>유연한 맞춤형 제작 프로세스</h3>
           <p>정해진 고정 기간은 없으며, 원하시는 서비스의 복잡도에 따라 유동적으로 방식을 결정합니다.<br><br>
           <strong>[사례 1] 점진적 고도화 방식</strong><br>
@@ -305,9 +298,9 @@
           기획(1주)&rarr;개발(1주)&rarr;배포.<br>템플릿 및 기획 확정 후, 변동 없이 빠르게 구축하는 방식입니다.</p>
         </div>
 
-        <!-- 4. Support & Comm -->
+        <!-- 3. Support & Comm -->
         <div class="info-card">
-          <div class="info-header">04</div>
+          <div class="info-header">03</div>
           <h3>사후 관리 및 커뮤니케이션</h3>
           <p>모든 개발 및 배포가 완료된 이후에도 <strong>2주간 무상 수정 기간</strong>을 보장합니다. 원활하고 명확한 기록을 위해 기본 소통은 <strong>채팅/메시지</strong>로 진행하며, 화상 미팅이 필요하신 경우 <strong>오후 10시부터 밤 12시 사이 줌(Zoom) 회의</strong>가 가능합니다.</p>
         </div>

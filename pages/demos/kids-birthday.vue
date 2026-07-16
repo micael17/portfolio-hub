@@ -10,9 +10,7 @@
 
       <!-- 주인공 사진 -->
       <div class="block photo bg-blue">
-        <!-- AI-IMG: 밝고 컬러풀한 생일 파티 주인공 아이, 고깔모자·풍선, 환한 표정 · 4:3 -->
-        <!-- prompt: cheerful little boy at his birthday party, party hat, colorful balloons, bright joyful lighting, 4:3 -->
-        <img src="https://images.unsplash.com/photo-1530103862676-de8892795816?w=600&q=80" alt="생일 파티 고깔모자를 쓴 다섯 살 레오의 환하게 웃는 모습">
+        <img src="/images/kids-birthday-ai/leo-hero.webp" alt="알록달록한 풍선 앞에서 파란 고깔모자를 쓰고 환하게 웃는 다섯 살 레오">
       </div>
 
       <!-- 행사 정보 -->
@@ -33,6 +31,22 @@
           <strong>편한 옷 & 알록달록한 색깔 환영!</strong>
           <em>마음껏 뛰어놀 수 있는 옷차림 추천</em>
         </div>
+      </div>
+
+      <!-- 파티 미리보기 -->
+      <div class="block party-gallery bg-yellow">
+        <div class="gallery-head">
+          <p class="kicker">A LITTLE PARTY PEEK</p>
+          <h2>CAKE, PLAY<br>&amp; BIG SMILES!</h2>
+        </div>
+        <figure class="gallery-cake">
+          <img src="/images/kids-birthday-ai/birthday-cake.webp" alt="다섯 개의 알록달록한 초가 꽂힌 레오의 생일 케이크">
+          <figcaption><b>01</b><span>다섯 개의 초를<br>함께 불어요</span></figcaption>
+        </figure>
+        <figure class="gallery-friends">
+          <img src="/images/kids-birthday-ai/party-friends.webp" alt="풍선으로 꾸민 파티룸에서 즐겁게 뛰어노는 네 명의 친구들">
+          <figcaption><b>02</b><span>친구들과 신나게<br>뛰어놀 시간!</span></figcaption>
+        </figure>
       </div>
 
       <!-- 오시는 길 -->
@@ -258,6 +272,69 @@ h1 {
   height: 340px;
   object-fit: cover;
   display: block;
+}
+
+/* 파티 이미지 갤러리 */
+.party-gallery {
+  padding: 1.4rem !important;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  text-align: left;
+}
+
+.gallery-head {
+  grid-column: 1 / -1;
+  padding: 1rem 0 1.25rem;
+}
+
+.gallery-head h2 {
+  margin: 0;
+  font-size: 2.35rem;
+  line-height: 0.92;
+}
+
+.party-gallery figure {
+  margin: 0;
+  background: #000;
+  color: #fff;
+}
+
+.party-gallery img {
+  width: 100%;
+  height: 190px;
+  display: block;
+  object-fit: cover;
+}
+
+.gallery-friends {
+  grid-column: 1 / -1;
+}
+
+.gallery-friends img {
+  height: 260px;
+}
+
+.party-gallery figcaption {
+  min-height: 70px;
+  padding: 0.8rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 4px solid #ffde00;
+}
+
+.party-gallery figcaption b {
+  color: #ff007f;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 1.4rem;
+}
+
+.party-gallery figcaption span {
+  font-size: 0.7rem;
+  line-height: 1.5;
+  text-align: right;
 }
 
 /* 행사 정보 */
